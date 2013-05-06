@@ -1,0 +1,25 @@
+{
+  //Identification	
+  "name": "Renewable Energy Design Studio",
+  "version": "0.1",
+  "description": "alpha",
+  //Compatibility
+  "manifest_version": 2,
+  "minimum_chrome_version": 23,
+  //App
+  "permissions":[
+  "unlimitedStorage",
+  ],
+  "sandbox":[
+  "/modules/main.html",
+  "/modules/home.html",
+  "/modules/map.html",
+  "/modules/tech.html"
+  ],
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "icons": { "16": "/img/icons/logo.png", "128": "/img/icons/logo.png" }
+}

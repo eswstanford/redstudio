@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/leaflet.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/redstudio.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/l.geosearch.css" />
+  <base target="_blank">
+  <script src="../js/angular.js"></script>
+  <script src="../js/leaflet.js"></script>
+  <script src="../js/controllers.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid"> <!-- start: bootstrap container -->
+  <!-- start: navigation bar -->
+  <div class="row-fluid">
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="nav-collapse">
+            <ul class="nav nav-tabs">
+                <li><a href="home.html">
+                  <img src="../img/icons/logo.png" width="50" height="50"></a>
+                </li>
+                <li><a href="save.html">
+                  <img src="../img/icons/save.png" width="50" height="50"></a>
+                </li>
+                <li><a href="social.html">
+                  <img src="../img/icons/social.png" width="50" height="50"></a>
+                </li>
+                <li>
+                  <a href="map.html"><img src="../img/icons/map.png" width="50" height="50"></a>
+                </li>
+                <li class="active"><a href="tech.html">
+                  <img src="../img/icons/tech.png" width="50" height="50"></a>
+                </li>
+                <li><a href="simulator.html">
+                  <img src="../img/icons/simulator.png" width="50" height="50"></a>
+                </li>
+                <li><a href="finance.html">
+                  <img src="../img/icons/finance.png" width="50" height="50"></a>
+                </li>
+                <li><a href="schedule.html">
+                  <img src="../img/icons/schedule.png" width="50" height="50"></a>
+                </li>
+                <li><a href="profile.html">
+                  <img src="../img/icons/profile.png" width="50" height="50"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+<!-- end: navigation bar -->
+
+<div style="width: 80%; position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
+  <!-- This should be the area where users can choose which resource they have.  Right now, only hydropower is an option. Somehow, clicking on the button should more to the next page which I included in the next div section.-->
+<h1><img src="img/icons/tech.png" width="50px" height="50px"></img>Resource and Technology</h1>
+<p>Choose your resource:</p><br>
+<a href="technologyB.html"><button><img src="img/icons/tech.png" width="50px" height="50px"></img>MicroHydro Plant</button></a>
+<br><br><button><img src="img/icons/solar_energy.png" width="50px" height="50px"></img>Solar Plant</button>
+<br><br><button><img src="img/icons/windmill.png" width="50px" height="50px"></img>Wind Plant</button>
+<br><br><button><img src="img/icons/biogas.png" width="50px" height="50px"></img>Biogas Plant</button>
+
+</div>
+
+<!-- This is the section where the user will input their site characteristics.  There should be a way where they can click a button that will pull from the location module to figure out the head from the elevation data.  Or they can enter a number of things that will allow the tool to calculate the head-->
+
+</body>
+</html>

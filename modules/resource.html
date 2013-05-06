@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/leaflet.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/redstudio.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/l.geosearch.css" />
+  <base target="_blank">
+  <script src="../js/angular.js"></script>
+  <script src="../js/leaflet.js"></script>
+  <script src="../js/controllers.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid"> <!-- start: bootstrap container -->
+  <!-- start: navigation bar -->
+  <div class="row-fluid">
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="nav-collapse">
+            <ul class="nav nav-tabs">
+                <li><a href="home.html">
+                  <img src="../img/icons/logo.png" width="50" height="50"></a>
+                </li>
+                <li><a href="save.html">
+                  <img src="../img/icons/save.png" width="50" height="50"></a>
+                </li>
+                <li><a href="social.html">
+                  <img src="../img/icons/social.png" width="50" height="50"></a>
+                </li>
+                <li>
+                  <a href="map.html"><img src="../img/icons/map.png" width="50" height="50"></a>
+                </li>
+                <li class="active"><a href="tech.html">
+                  <img src="../img/icons/tech.png" width="50" height="50"></a>
+                </li>
+                <li><a href="simulator.html">
+                  <img src="../img/icons/simulator.png" width="50" height="50"></a>
+                </li>
+                <li><a href="finance.html">
+                  <img src="../img/icons/finance.png" width="50" height="50"></a>
+                </li>
+                <li><a href="schedule.html">
+                  <img src="../img/icons/schedule.png" width="50" height="50"></a>
+                </li>
+                <li><a href="profile.html">
+                  <img src="../img/icons/profile.png" width="50" height="50"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+<!-- end: navigation bar -->
+
+
+<!-- start: resource input -->
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="input-append">
+        <input class="span8" id="prependedInput" type="text" placeholder="Effective Head">
+        <span class="add-on">m</span>
+      </div>
+      <div class="input-append">
+        <input class="span8" id="appendedInput" type="text" placeholder="Flow Rate">
+        <span class="add-on">m3 s-1</span>
+      </div>
+    </div>
+  </div>
+<!-- end: resource input -->
+
+
+<!-- start: recommendations -->
+  <div class="row-fluid">
+    <div class="span12">
+      use turbine xyz
+    </div>
+  </div>
+<!-- end: recommendations -->
+
+<!-- add database query, logical stuff, energy calculations, etc. -->
+
+</div> <!-- end: bootstrap container -->
+
+</body>
+</html>
