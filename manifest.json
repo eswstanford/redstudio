@@ -5,10 +5,9 @@
   "description": "alpha",
   //Compatibility
   "manifest_version": 2,
-  "minimum_chrome_version": 23,
   //App
   "permissions":[
-  "unlimitedStorage",
+  "unlimitedStorage"
   ],
   "sandbox":[
   "/modules/main.html",
