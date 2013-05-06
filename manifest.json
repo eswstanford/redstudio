@@ -10,15 +10,21 @@
   "unlimitedStorage"
   ],
   "sandbox":[
-  "/modules/main.html",
+  "/modules/commit.html",
+  "/modules/community.html",
+  "/modules/console.html",
+  "/modules/financial.html",
+  "/modules/geospatial.html",
   "/modules/home.html",
-  "/modules/map.html",
-  "/modules/tech.html"
+  "/modules/main.html",
+  "/modules/resource.html",
+  "/modules/results.html",
+  "/modules/technology.html"
   ],
   "app": {
     "background": {
       "scripts": ["js/background.js"]
     }
   },
-  "icons": { "16": "/img/icons/logo.png", "128": "/img/icons/logo.png" }
+  "icons": { "16": "/img/logos/redstudio.png", "128": "/img/logos/redstudio.png" }
 }

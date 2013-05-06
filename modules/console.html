@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="../css/leaflet.css" />
   <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/redstudio.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/l.geosearch.css" />
   <base target="_blank">
   <script src="../js/angular.js"></script>
   <script src="../js/leaflet.js"></script>
@@ -27,45 +29,44 @@
         <div class="nav-collapse">
             <ul class="nav nav-tabs">
                 <li><a href="home.html">
-                  <img src="../img/icons/logo.png" width="50" height="50"></a>
+                  <img src="../img/icons/home.png" width="50" height="50"></a>
                 </li>
-                <li><a href="save.html">
-                  <img src="../img/icons/save.png" width="50" height="50"></a>
+                <li><a href="commit.html">
+                  <img src="../img/icons/github.png" width="50" height="50"></a>
                 </li>
-                <li><a href="social.html">
-                  <img src="../img/icons/social.png" width="50" height="50"></a>
+                <li><a href="community.html">
+                  <img src="../img/icons/community.png" width="50" height="50"></a>
                 </li>
-                <li class="active">
-                  <a href="map.html"><img src="../img/icons/map.png" width="50" height="50"></a>
+                <li>
+                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
                 </li>
                 <li><a href="technology.html">
-                  <img src="../img/icons/technology.png" width="50" height="50"></a>
+                  <img src="../img/icons/hydro.png" width="50" height="50"></a>
                 </li>
-                <li><a href="simulator.html">
-                  <img src="../img/icons/simulator.png" width="50" height="50"></a>
+                <li class="active"><a href="console.html">
+                  <img src="../img/icons/console.png" width="50" height="50"></a>
                 </li>
-                <li><a href="finance.html">
-                  <img src="../img/icons/finance.png" width="50" height="50"></a>
+                <li><a href="financial.html">
+                  <img src="../img/icons/financial.png" width="50" height="50"></a>
                 </li>
-                <li><a href="schedule.html">
-                  <img src="../img/icons/schedule.png" width="50" height="50"></a>
+                <li><a href="results.html">
+                  <img src="../img/icons/results.png" width="50" height="50"></a>
                 </li>
-                <li><a href="profile.html">
-                  <img src="../img/icons/profile.png" width="50" height="50"></a>
+                <li><a href="http://stanfordredi.wordpress.com">
+                  <img src="../img/icons/wordpress.png" width="50" height="50"></a>
                 </li>
             </ul>
         </div>
       </div>
     </div>
-<!-- end: navigation bar -->
+    <!-- end: navigation bar -->
 
 
-<!-- start: interactive map -->
-<div class="row-fluid">
-  <div class="span8 offset2">
-<div id="map" style="width: 50%; height: 100%; position: relative; margin: 10px; padding: 150px; z-index: 0;"></div>
-
-<script>
+  <div class="row-fluid">
+    <!-- start: system map -->
+    <div id="map-area" class="span6">
+      <div id="map"></div>
+      <script>
 
     function getURLParameter(name) {
         return decodeURI(
@@ -96,19 +97,35 @@
 
           map.addControl(new L.Control.Scale());
 
-  </script>
-
-
-
-
+      </script>
     </div>
+    <!-- end: system map -->
+
+    <!-- start: results -->
+    <div class="span6">
+      Summary
     </div>
+    <!-- end: results -->
   </div>
-  </div>
+    
 
-<!-- end: interactive map -->
 
+    <!-- start: full summary -->
+    <div class="row-fluid">
+      <div class="span4">
+        Voltage Report
+      </div>
+      <div class="span4">
+        Source Utilization
+      </div>
+      <div class="span4">
+        Controls
+      </div>
+    </div>
+    
 </div> <!-- end: bootstrap container -->
+
+<!-- backend -->
 
 </body>
 </html>

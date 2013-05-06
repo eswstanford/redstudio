@@ -5,22 +5,22 @@
   <meta charset="utf-8">
   <title>RED Studio</title>
   <meta name="description" content="Renewable Energy Design Studio" />
-  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source, stanford, cee" />
   <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/leaflet.css" />
   <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/redstudio.css">
-  <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="../css/l.geosearch.css" />
   <base target="_blank">
   <script src="../js/angular.js"></script>
+  <script src="../js/boostrap.js"></script>
+  <script src="../js/jquery-1.9.1.js"></script>
   <script src="../js/leaflet.js"></script>
   <script src="../js/controllers.js"></script>
 </head>
 
-<body>
 
+<body>
 <div class="container-fluid"> <!-- start: bootstrap container -->
   <!-- start: navigation bar -->
   <div class="row-fluid">
@@ -28,7 +28,7 @@
       <div class="navbar-inner">
         <div class="nav-collapse">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="home.html">
+                <li><a href="home.html">
                   <img src="../img/icons/home.png" width="50" height="50"></a>
                 </li>
                 <li><a href="commit.html">
@@ -37,7 +37,7 @@
                 <li><a href="community.html">
                   <img src="../img/icons/community.png" width="50" height="50"></a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
                 </li>
                 <li><a href="technology.html">
@@ -61,32 +61,11 @@
     </div>
     <!-- end: navigation bar -->
 
-<!-- start: projects -->
-<div class="row-fluid">
-  <div class="span12">
-    <div class="row-fluid">
-      <div class="span6">
-        <button class="btn"><img src="../img/icons/new.png" width="25%"></button>
-      </div>
-      <div class="span6">
-        <button class="btn"><img src="../img/icons/old.png" width="25%"></button>
-      </div>
-    </div>
-  </div>
+    <!-- start: interactive map -->
+    <!-- end: interactive map -->
+
+
 </div>
-<div class="span12"></div>
-<!-- end: projects -->
-
-<!-- start: backend stuff-->
-
-<!-- 1. add chrome filesystem api -->
-<!-- 2. add chrome filesystem api -->
 
 
-<!-- end: backend stuff-->
-
-
-</div> <!-- end: bootstrap container -->
-
-</body>
 </html>
