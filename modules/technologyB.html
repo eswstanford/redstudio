@@ -88,18 +88,33 @@
 
 <!-- end: navigation bar -->
 
+
 <div style="width: 80%; position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
-  <!-- This should be the area where users can choose which resource they have.  Right now, only hydropower is an option. Somehow, clicking on the button should more to the next page which I included in the next div section.-->
-<h1><img src="img/icons/tech.png" width="50px" height="50px"></img>Resource and Technology</h1>
-<p>Choose your resource:</p><br>
-<a href="technologyB.html"><button><img src="img/icons/tech.png" width="50px" height="50px"></img>MicroHydro Plant</button></a>
-<br><br><button><img src="img/icons/solar_energy.png" width="50px" height="50px"></img>Solar Plant</button>
-<br><br><button><img src="img/icons/windmill.png" width="50px" height="50px"></img>Wind Plant</button>
-<br><br><button><img src="img/icons/biogas.png" width="50px" height="50px"></img>Biogas Plant</button>
+<h1><img src="img/icons/tech.png" width="50px" height="50px"></img>Hydro Power Characterization</h1><br>
+<p>Enter Flow Rate (m<sup>3</sup>/s)</p><input type="text" data-provide="typeahead" id="flowrate"></input>
+
+
+ <!-- a warning should pop up if the user enters anything that isn't a number.  Also, is there a way to make the 3 in m3 show up subscript?-->
+
+
+<p>Enter Effective Head (m)</p><input type="text" data-provide="typeahead" id="head"></input>
+<!-- there should be a place here where the user can input a number and a warning should pop up if the user enters anything that isn't a number.-->
+<script>
+  function calculate(){
+    var flowValue = document.getElementById('flowrate').value;
+    var headValue = document.getElementById('head').value;
+    alert("flowValue: " + flowValue + " " + 
+      "headValue: " + headValue );
+  }
+</script>
+
+
+<br><button onclick="calculate()">What Generator Do You Recommend?</button>
+
+<br><a href="technology.html"><button>Back</button></a>
+  
 
 </div>
-
-<!-- This is the section where the user will input their site characteristics.  There should be a way where they can click a button that will pull from the location module to figure out the head from the elevation data.  Or they can enter a number of things that will allow the tool to calculate the head-->
 
 </body>
 </html>
