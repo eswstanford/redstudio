@@ -5,125 +5,145 @@
   <meta charset="utf-8">
   <title>RED Studio</title>
   <meta name="description" content="Renewable Energy Design Studio" />
-  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, mapbox, esw, bootstrap, open source" />
   <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/leaflet.css" />
+  <link rel="stylesheet" href="../css/mapbox.css" />
   <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/redstudio.css">
-  <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="../css/l.geosearch.css" />
   <base target="_blank">
   <script src="../js/angular.js"></script>
-  <script src="../js/leaflet.js"></script>
+  <script src="../js/mapbox.js"></script>
+  <script src="../js/bootstrap.js"></script>
   <script src="../js/controllers.js"></script>
 </head>
 
 <body>
 
-<div class="container-fluid"> <!-- start: bootstrap container -->
-  <!-- start: navigation bar -->
+<!-- start: module container -->
+<div class="container-fluid"> 
+  <!-- start: row 1 -->
   <div class="row-fluid">
+    <!-- start: navigation bar -->
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="nav-collapse">
             <ul class="nav nav-tabs">
                 <li><a href="home.html">
-                  <img src="../img/icons/home.png" width="50" height="50"></a>
+                  <img src="../img/icons/home.png" width="30" height="30"></a>
                 </li>
                 <li><a href="commit.html">
-                  <img src="../img/icons/github.png" width="50" height="50"></a>
+                  <img src="../img/icons/github.png" width="30" height="30"></a>
                 </li>
                 <li><a href="community.html">
-                  <img src="../img/icons/community.png" width="50" height="50"></a>
+                  <img src="../img/icons/community.png" width="30" height="30"></a>
                 </li>
                 <li>
-                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
+                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="30" height="30"></a>
                 </li>
                 <li><a href="technology.html">
-                  <img src="../img/icons/hydro.png" width="50" height="50"></a>
+                  <img src="../img/icons/hydro.png" width="30" height="30"></a>
                 </li>
                 <li class="active"><a href="console.html">
-                  <img src="../img/icons/console.png" width="50" height="50"></a>
+                  <img src="../img/icons/console.png" width="30" height="30"></a>
                 </li>
                 <li><a href="financial.html">
-                  <img src="../img/icons/financial.png" width="50" height="50"></a>
+                  <img src="../img/icons/financial.png" width="30" height="30"></a>
                 </li>
                 <li><a href="results.html">
-                  <img src="../img/icons/results.png" width="50" height="50"></a>
+                  <img src="../img/icons/results.png" width="30" height="30"></a>
                 </li>
                 <li><a href="http://stanfordredi.wordpress.com">
-                  <img src="../img/icons/wordpress.png" width="50" height="50"></a>
+                  <img src="../img/icons/wordpress.png" width="30" height="30"></a>
                 </li>
             </ul>
         </div>
       </div>
+      <!-- end: navigation bar -->
     </div>
-    <!-- end: navigation bar -->
+    <!-- end: row 1 -->
+    
 
-
+  <!-- end: row 2 -->
   <div class="row-fluid">
-    <!-- start: system map -->
-    <div id="map-area" class="span6">
+    <div class="span12">
+      <!-- start: system map -->
       <div id="map"></div>
-      <script>
+      <ul id='map-ui'></ul>
+      <script type='text/javascript'>
+        var map = L.map('map').addControl(L.mapbox.geocoderControl('examples.map-zgrqqx0w')).setView([-6.2, 106.8], 8);
+        var ui = document.getElementById('map-ui');
 
-    function getURLParameter(name) {
-        return decodeURI(
-            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,])[1]
-        );
-    }
+        addLayer(L.mapbox.tileLayer('examples.map-zgrqqx0w'), 'Community');
+        addLayer(L.mapbox.tileLayer('examples.bike-locations'), 'Grid');
+        function addLayer(layer, name) {
+        layer.addTo(map);
 
-    var regionParameter = getURLParameter('region');
-    var region = (regionParameter === 'undefined') ? '' : regionParameter;
+        // Create a simple layer switcher that toggles layers on
+        // and off.
+        var item = document.createElement('li');
+        var link = document.createElement('a');
 
-    /** 
-     * create map 
-     **/
-    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png';
-    var basemap = new L.TileLayer(cloudmadeUrl, {maxZoom: 18});
-    
-    var map = new L.Map('map', {
-      layers: [basemap], 
-      center: new L.LatLng(-6, 106), zoom: 6
+        link.href = '#';
+        link.className = 'active';
+        link.innerHTML = name;
 
-    });
+        link.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
 
-        new L.Control.GeoSearch({
-            provider: new L.GeoSearch.Provider.Google({
-              region: region
-            })
-        }).addTo(map);
+          if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+          } else {
+            map.addLayer(layer);
+            this.className = 'active';
+          }
+        };
 
-          map.addControl(new L.Control.Scale());
+        item.appendChild(link);
+        ui.appendChild(item);
+      };
 
-      </script>
+      // Add markers on click
+        map.on('click', function(e) {
+          console.log(e.latlng.lat,e.latlng.lng);
+          var lat=e.latlng.lat;
+          var lng=e.latlng.lng;
+          L.mapbox.markerLayer({
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [lat, lng]
+            },
+            properties: {
+              title: 'Point',
+              description: 'Just one of me',
+              'marker-size': 'large',
+              'marker-color': '#f0a'
+            }
+          }).addTo(map);
+        });
+
+      // Add distance scale
+      L.control.scale().addTo(map);
+    </script>
+      <!-- end: system map -->
     </div>
-    <!-- end: system map -->
+    <!-- end: console -->
 
-    <!-- start: results -->
-    <div class="span6">
-      Summary
-    </div>
-    <!-- end: results -->
+
+    <!-- start: simulator -->
+      <div class="row-fluid">
+        <div class="span12">
+          i can haz buttons?
+        </div>
+      </div>
+      <!-- end: simulator -->
   </div>
+  <!-- end: row 2 -->
     
-
-
-    <!-- start: full summary -->
-    <div class="row-fluid">
-      <div class="span4">
-        Voltage Report
-      </div>
-      <div class="span4">
-        Source Utilization
-      </div>
-      <div class="span4">
-        Controls
-      </div>
-    </div>
-    
-</div> <!-- end: bootstrap container -->
+</div> <!-- end: module container -->
 
 <!-- backend -->
 
