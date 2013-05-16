@@ -10,8 +10,7 @@ function gotoMap(){
     'left': 400,
     'top': 0
   });
-});
-}
+};
 
 var navList = angular.module('navList', []);
 

@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 <head data-ng-app data-ng-csp="">
   <meta charset="utf-8">
   <title>RED Studio</title>
@@ -8,67 +7,97 @@
   <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
   <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/leaflet.css" />
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="../css/redstudio.css">
-  <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="../css/l.geosearch.css" />
-  <base target="_blank">
-  <script src="../js/angular.js"></script>
-  <script src="../js/leaflet.js"></script>
-  <script src="../js/controllers.js"></script>
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/angular.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/controllers.js"></script>
+  <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        overflow:hidden;
+      }
+      #map {
+        margin-top:40px;
+        width:100%;
+        height:100%;
+      }
+      #loading {
+        position: absolute;
+        width: 220px;
+        height: 19px;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -110px;
+        z-index: 20001;
+      }
+      #loading .loading-indicator {
+        height: auto;
+        margin: 0;
+      }
+      .navbar .brand {
+        font-size: 25px;
+        font-family: 'Norican', serif;
+        font-weight: bold;
+        color: white;
+      }
+      .navbar .nav > li > a {
+        padding: 13px 10px 11px;
+      }
+      .navbar .btn, .navbar .btn-group {
+        margin-top: 8px;
+      }
+      .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: #f7f7f7;
+      }
+      .leaflet-control-geoloc {
+        background-image: url(img/location.png);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
+    </style>
+  
 </head>
-
 <body>
 
-<div class="container-fluid"> <!-- start: bootstrap container -->
-  <!-- start: navigation bar -->
-  <div class="row-fluid">
-    <div class="navbar navbar-fluid-top">
+
+<!-- start: navigation bar -->
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="nav-collapse">
-            <ul class="nav nav-tabs">
-                <li><a href="home.html">
-                  <img src="../img/icons/home.png" width="50" height="50"></a>
-                </li>
-                <li><a href="commit.html">
-                  <img src="../img/icons/github.png" width="50" height="50"></a>
-                </li>
-                <li><a href="community.html">
-                  <img src="../img/icons/community.png" width="50" height="50"></a>
-                </li>
-                <li>
-                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
-                </li>
-                <li class="active"><a href="technology.html">
-                  <img src="../img/icons/hydro.png" width="50" height="50"></a>
-                </li>
-                <li><a href="console.html">
-                  <img src="../img/icons/console.png" width="50" height="50"></a>
-                </li>
-                <li><a href="financial.html">
-                  <img src="../img/icons/financial.png" width="50" height="50"></a>
-                </li>
-                <li><a href="results.html">
-                  <img src="../img/icons/results.png" width="50" height="50"></a>
-                </li>
-                <li><a href="http://stanfordredi.wordpress.com">
-                  <img src="../img/icons/wordpress.png" width="50" height="50"></a>
-                </li>
+            <ul class="nav">
+            
+                <li><a href="template.html"><img src="img/icons/logo.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/save.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/social.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/map.png" width="50" height="50"></a></li>
+                <li class="active"><a href="technology.html"><img src="img/icons/tech.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/simulator.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/finance.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/schedule.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/profile.png" width="50" height="50"></a></li>
+              
             </ul>
-        </div>
+          </div>
       </div>
     </div>
-    <!-- end: navigation bar -->
 
-  <div class="row-fluid">
+<!-- end: navigation bar -->
+
+<div style="width: 80%; position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
   <!-- This should be the area where users can choose which resource they have.  Right now, only hydropower is an option. Somehow, clicking on the button should more to the next page which I included in the next div section.-->
-    <div class="span8 offset2">Choose Your Resource</div>
-    <button type="submit" class="btn"><img src="../img/icons/hydro.png" width="50px" height="50px"></img>Hydro Plant</button>
-    <button type="submit" class="btn"><img src="../img/icons/solar.png" width="50px" height="50px"></img>Solar Plant</button>
-    <button type="submit" class="btn"><img src="../img/icons/wind.png" width="50px" height="50px"></img>Wind Plant</button>
-    <button type="submit" class="btn"><img src="../img/icons/biogas.png" width="50px" height="50px"></img>Biogas Plant</button>
-  </div>
+<h1><img src="img/icons/tech.png" width="50px" height="50px"></img>Resource and Technology</h1>
+<p>Choose your resource:</p><br>
+<a href="technologyB.html"><button><img src="img/icons/tech.png" width="50px" height="50px"></img>MicroHydro Plant</button></a>
+<br><br><button><img src="img/icons/solar_energy.png" width="50px" height="50px"></img>Solar Plant</button>
+<br><br><button><img src="img/icons/windmill.png" width="50px" height="50px"></img>Wind Plant</button>
+<br><br><button><img src="img/icons/biogas.png" width="50px" height="50px"></img>Biogas Plant</button>
+
+</div>
 
 <!-- This is the section where the user will input their site characteristics.  There should be a way where they can click a button that will pull from the location module to figure out the head from the elevation data.  Or they can enter a number of things that will allow the tool to calculate the head-->
 
