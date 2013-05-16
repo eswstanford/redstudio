@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/leaflet.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/angular.js"></script>
+  <script src="../js/leaflet.js"></script>
+  <script src="../js/controllers.js"></script>
+  <script src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.1.js"></script>  
+  <link rel="stylesheet" href="../css/redstudiostyle.css" />
+  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  
+
+
+</script>
+</head>
+<body>
+
+
+<!-- start: navigation bar -->
+   
+  <div class = "row-fluid" align:"center">
+    <ul class="topbar">
+      <li class="logo"><a href><img src = "../img/logo.png"></img></a> </li>
+      <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
+      <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
+      <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
+      <li class="social"><a href="profile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
+  </ul>
+  </div>
+    <!-- end: navigation bar -->
+
+<!-- start left colum of territorial public data -->
+  <div class= "container-fluid" >
+    <div class= "span8">
+    <h3 class="text-center">MICRO-HYDROPOWER REHABILITATION PROJECT</h3><br>
+     <table style="border-collapse:collapse;">
+        <thead>
+            <tr>
+                <th colspan="2"><em>Territorial Public Data</em></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:5px;">Province: </td>
+                <td style="padding:5px;"><input type="text" placeholder="e.g. West Java"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Regency:</td> 
+                <td style="padding:5px;"><input type="text" placeholder="e.g. Sukabumi"></td>     
+            </tr>
+            
+            <tr>
+                <td style="padding:5px;">Sub-District</td>
+                <td style="padding:5px;"><input type="text" placeholder="e.g. Cikakak"></td>
+            </tr>
+            
+            <tr>
+                <td style="padding:5px;">Village</td>
+                <td style="padding:5px;"><input type="text" placeholder="e.g. Sima Rasa"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Dunsun/Kampung:</td>
+                <td style="padding:5px;">
+                  <label class="checkbox inline"> 
+                  <input type="checkbox" id="Cihangasa" value="option1"> Cihangasa </label>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="Cisarua" value="option2"> Cisarua </label>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="SirnaRasa" value="option3"> Sirna Rasa </label></td>
+            </tr>
+
+            <tr>
+              <td>   </td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Name of interviewer:</td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;"> Start of interview: </td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">End of interview:</td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+              <td>   </td>
+            </tr>
+
+             <tr>
+                <td style="padding:5px;">Number of households:</td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Number of respondents:</td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Age of respondents:</td>
+                <td style="padding:5px;"><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td style="padding:5px;">Status in family:</td>
+                <td style="padding:5px;">
+                  <label class="checkbox inline"> 
+                  <input type="checkbox" id="checkHead" value="option1"> Head </label>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="checkWife" value="option2"> Wife </label>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="checkChild" value="option3"> Child </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+      <a href= "FamilyProfile.html"><h2 class="text-center">START INTERVIEW>></h2></a>
+        <div class="progress progress-info">
+          <div class="bar" style="width: 0%"></div>
+        </div>
+      </div>
+    
+<div class="span4">
+  <h4 class="text-center">Quick Links</h4>
+  <hr>
+  <h4>Part A</h4>
+  <a href="FamilyProfile.html"><h3 class="text-center">Family Profile</h3></a>
+  <hr>
+  <h4>Part B</h4>
+  <a href="HouseData.html"><h3 class="text-center">House Data</h3></a>
+  <hr>
+  <h4>Part C</h4>
+  <a href="EconomicData.html"><h3 class="text-center">Economic Data</h3></a>
+  <hr>
+  <h4>Part D</h4>
+  <a href="CurrentEnergyUsage.html"><h3 class="text-center">Current Energy Usage</h3></a>
+  <hr>
+  <h4>Part E</h4>
+  <a href="ElectricNeeds.html"><h3 class="text-center">Electric Needs</h3></a>
+</div>
+</div>
+
+</body>
+</html>

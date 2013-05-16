@@ -1,144 +1,1 @@
-3,0.1,Kaplan,5
-3,0.3,Kaplan or Crossflow,10
-3,0.5,Kaplan or Crossflow,10
-3,1,Kaplan or Crossflow,30
-3,2,Kaplan or Crossflow,50
-3,3,Kaplan or Crossflow,70
-3,4,Kaplan or Crossflow,100
-3,5,Kaplan or Crossflow,120
-3,6,Kaplan or Crossflow,150
-3,7,Kaplan or Crossflow,180
-3,8,Kaplan or Crossflow,210
-3,9,Kaplan or Crossflow,230
-3,10,Kaplan,250
-3,14,Kaplan,350
-3,20,Kaplan,500
-3,30,Kaplan,900
-5,0.1,Kaplan,5
-5,0.3,Kaplan or Crossflow,10
-5,0.5,Kaplan or Crossflow,30
-5,1,Kaplan or Crossflow,50
-5,2,Kaplan or Crossflow,100
-5,3,Kaplan or Crossflow,150
-5,4,Kaplan or Crossflow,200
-5,5,Kaplan or Crossflow,260
-5,6,Kaplan or Crossflow,290
-5,7,Kaplan or Crossflow,320
-5,8,Kaplan or Crossflow,360
-5,9,Kaplan or Crossflow,400
-5,10,Kaplan,450
-5,14,Kaplan,550
-5,20,Kaplan,1000
-5,30,Kaplan,1500
-5,40,Kaplan,2500
-10,0.1,Kaplan,10
-10,0.3,Kaplan or Crossflow,25
-10,0.5,Kaplan or Crossflow,45
-10,1,Kaplan or Crossflow,70
-10,2,Kaplan or Crossflow,200
-10,3,Kaplan or Francis or Crossflow,250
-10,4,Kaplan or Francis or Crossflow,350
-10,5,Kaplan or Francis or Crossflow,450
-10,6,Kaplan or Francis or Crossflow,500
-10,7,Kaplan or Francis or Crossflow,550
-10,8,Kaplan or Francis or Crossflow,650
-10,9,Kaplan or Francis or Crossflow,800
-10,10,Kaplan or Francis,1000
-10,15,Kaplan or Francis,1500
-10,20,Kaplan,2000
-10,30,Kaplan,3000
-10,40,Kaplan,4250
-10,50,Kaplan,4750
-20,0.1,Kaplan,25
-20,0.3,Kaplan,50
-20,0.5,Kaplan or Crossflow,100
-20,1,Kaplan or Crossflow,200
-20,2,Kaplan or Francis or Crossflow,400
-20,3,Kaplan or Francis or Crossflow,500
-20,4,Kaplan or Francis or Crossflow,750
-20,5,Kaplan or Francis or Crossflow,1000
-20,6,Kaplan or Francis,1100
-20,7,Kaplan or Francis,1300
-20,8,Kaplan or Francis,1500
-20,9,Kaplan or Francis,2000
-20,10,Kaplan or Francis,2300
-20,15,Kaplan or Francis,3500
-20,20,Kaplan,4500
-20,30,Kaplan,5000
-20,40,Kaplan,7500
-20,50,Kaplan,10000
-30,0.1,Pelton,30
-30,0.3,Kaplan or Pelton,90
-30,0.5,Kaplan or Crossflow,150
-30,1,Kaplan or Francis or Crossflow,250
-30,2,Kaplan or Francis or Crossflow,500
-30,3,Kaplan or Francis or Crossflow,750
-30,4,Kaplan or Francis,1000
-30,5,Kaplan or Francis,1600
-30,6,Kaplan or Francis,2200
-30,7,Kaplan or Francis,2600
-30,8,Kaplan or Francis,3000
-30,9,Kaplan or Francis,3300
-30,10,Kaplan or Francis,3800
-30,15,Kaplan or Francis,4500
-30,20,Kaplan or Francis,5000
-30,30,Kaplan,8000
-30,40,Kaplan,10000
-50,0.1,Turgo or Pelton,50
-50,0.3,Turgo or Pelton or Crossflow,100
-50,0.5,Turgo or Pelton or Crossflow or Francis,250
-50,1,Turgo or Francis or Crossflow or Kaplan,450
-50,2,Turgo or Francis or Crossflow or Kaplan,1000
-50,3,Turgo or Francis or Kaplan,1500
-50,4,Turgo or Francis or Kaplan,2500
-50,5,Turgo or Francis or Kaplan,3100
-50,6,Turgo or Francis or Kaplan,3400
-50,7,Turgo or Francis or Kaplan,3800
-50,8,Turgo or Francis or Kaplan,4100
-50,9,Turgo or Francis or Kaplan,4500
-50,10,Turgo or Francis or Kaplan,4800
-50,15,Francis or Kaplan,7500
-50,20,Francis or Kaplan,8000
-100,0.1,Turgo or Pelton,100
-100,0.3,Turgo or Pelton or Crossflow,300
-100,0.5,Turgo or Pelton or Crossflow,450
-100,1,Turgo or Pelton or Crossflow or Francis,1000
-100,2,Turgo or Francis,2600
-100,3,Turgo or Francis,3500
-100,4,Turgo or Francis,4000
-100,5,Francis,4500
-100,6,Francis,5000
-100,7,Francis,6000
-100,8,Francis,7000
-100,9,Francis,8000
-100,10,Francis,9000
-200,0.1,Turgo or Pelton,200
-200,0.3,Turgo or Pelton or Crossflow,500
-200,0.5,Turgo or Pelton or Crossflow,900
-200,1,Turgo or Pelton or Francis,2500
-200,2,Francis,4000
-200,3,Francis,5000
-200,4,Francis,7000
-200,5,Francis,9000
-200,6,Francis,10000
-300,0.1,Pelton,350
-300,0.3,Pelton,700
-300,0.5,Pelton,1300
-300,1,Pelton or Francis,3500
-300,2,Francis,5000
-300,3,Francis,7500
-300,4,Francis,10000
-400,0.1,Pelton,400
-400,0.3,Pelton,1000
-400,0.5,Pelton,2500
-400,1,Pelton,4000
-400,2,Pelton,5000
-500,0.1,Pelton,450
-500,0.3,Pelton,550
-500,0.5,Pelton,2800
-500,1,Pelton,4500
-500,2,Pelton,8000
-1000,0.1,Pelton,800
-1000,0.3,Pelton,3000
-1000,0.5,Pelton,4000
-1000,1,Pelton,7500
+Effective Head (m),Flow Rate (m3/s),Turbine Type,Estimate of Expected Power (kW)3,0.1,Kaplan,53,0.3,Kaplan or Crossflow,103,0.5,Kaplan or Crossflow,103,1,Kaplan or Crossflow,303,2,Kaplan or Crossflow,503,3,Kaplan or Crossflow,703,4,Kaplan or Crossflow,1003,5,Kaplan or Crossflow,1203,6,Kaplan or Crossflow,1503,7,Kaplan or Crossflow,1803,8,Kaplan or Crossflow,2103,9,Kaplan or Crossflow,2303,10,Kaplan,2503,14,Kaplan,3503,20,Kaplan,5003,30,Kaplan,9005,0.1,Kaplan,55,0.3,Kaplan or Crossflow,105,0.5,Kaplan or Crossflow,305,1,Kaplan or Crossflow,505,2,Kaplan or Crossflow,1005,3,Kaplan or Crossflow,1505,4,Kaplan or Crossflow,2005,5,Kaplan or Crossflow,2605,6,Kaplan or Crossflow,2905,7,Kaplan or Crossflow,3205,8,Kaplan or Crossflow,3605,9,Kaplan or Crossflow,4005,10,Kaplan,4505,14,Kaplan,5505,20,Kaplan,10005,30,Kaplan,15005,40,Kaplan,250010,0.1,Kaplan,1010,0.3,Kaplan or Crossflow,2510,0.5,Kaplan or Crossflow,4510,1,Kaplan or Crossflow,7010,2,Kaplan or Crossflow,20010,3,Kaplan or Francis or Crossflow,25010,4,Kaplan or Francis or Crossflow,35010,5,Kaplan or Francis or Crossflow,45010,6,Kaplan or Francis or Crossflow,50010,7,Kaplan or Francis or Crossflow,55010,8,Kaplan or Francis or Crossflow,65010,9,Kaplan or Francis or Crossflow,80010,10,Kaplan or Francis,100010,15,Kaplan or Francis,150010,20,Kaplan,200010,30,Kaplan,300010,40,Kaplan,425010,50,Kaplan,475020,0.1,Kaplan,2520,0.3,Kaplan,5020,0.5,Kaplan or Crossflow,10020,1,Kaplan or Crossflow,20020,2,Kaplan or Francis or Crossflow,40020,3,Kaplan or Francis or Crossflow,50020,4,Kaplan or Francis or Crossflow,75020,5,Kaplan or Francis or Crossflow,100020,6,Kaplan or Francis,110020,7,Kaplan or Francis,130020,8,Kaplan or Francis,150020,9,Kaplan or Francis,200020,10,Kaplan or Francis,230020,15,Kaplan or Francis,350020,20,Kaplan,450020,30,Kaplan,500020,40,Kaplan,750020,50,Kaplan,1000030,0.1,Pelton,3030,0.3,Kaplan or Pelton,9030,0.5,Kaplan or Crossflow,15030,1,Kaplan or Francis or Crossflow,25030,2,Kaplan or Francis or Crossflow,50030,3,Kaplan or Francis or Crossflow,75030,4,Kaplan or Francis,100030,5,Kaplan or Francis,160030,6,Kaplan or Francis,220030,7,Kaplan or Francis,260030,8,Kaplan or Francis,300030,9,Kaplan or Francis,330030,10,Kaplan or Francis,380030,15,Kaplan or Francis,450030,20,Kaplan or Francis,500030,30,Kaplan,800030,40,Kaplan,1000050,0.1,Turgo or Pelton,5050,0.3,Turgo or Pelton or Crossflow,10050,0.5,Turgo or Pelton or Crossflow or Francis,25050,1,Turgo or Francis or Crossflow or Kaplan,45050,2,Turgo or Francis or Crossflow or Kaplan,100050,3,Turgo or Francis or Kaplan,150050,4,Turgo or Francis or Kaplan,250050,5,Turgo or Francis or Kaplan,310050,6,Turgo or Francis or Kaplan,340050,7,Turgo or Francis or Kaplan,380050,8,Turgo or Francis or Kaplan,410050,9,Turgo or Francis or Kaplan,450050,10,Turgo or Francis or Kaplan,480050,15,Francis or Kaplan,750050,20,Francis or Kaplan,8000100,0.1,Turgo or Pelton,100100,0.3,Turgo or Pelton or Crossflow,300100,0.5,Turgo or Pelton or Crossflow,450100,1,Turgo or Pelton or Crossflow or Francis,1000100,2,Turgo or Francis,2600100,3,Turgo or Francis,3500100,4,Turgo or Francis,4000100,5,Francis,4500100,6,Francis,5000100,7,Francis,6000100,8,Francis,7000100,9,Francis,8000100,10,Francis,9000200,0.1,Turgo or Pelton,200200,0.3,Turgo or Pelton or Crossflow,500200,0.5,Turgo or Pelton or Crossflow,900200,1,Turgo or Pelton or Francis,2500200,2,Francis,4000200,3,Francis,5000200,4,Francis,7000200,5,Francis,9000200,6,Francis,10000300,0.1,Pelton,350300,0.3,Pelton,700300,0.5,Pelton,1300300,1,Pelton or Francis,3500300,2,Francis,5000300,3,Francis,7500300,4,Francis,10000400,0.1,Pelton,400400,0.3,Pelton,1000400,0.5,Pelton,2500400,1,Pelton,4000400,2,Pelton,5000500,0.1,Pelton,450500,0.3,Pelton,550500,0.5,Pelton,2800500,1,Pelton,4500500,2,Pelton,80001000,0.1,Pelton,8001000,0.3,Pelton,30001000,0.5,Pelton,40001000,1,Pelton,7500
