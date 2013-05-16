@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <base target="_blank">
+  <script src="js/bootstrap.js"></script>
+  <script src="js/angular.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/jquery-1.9.1.js"></script>
+  <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        overflow:hidden;
+      }
+	  body {
+	    padding-top: 73px;
+	  }
+      #map {
+        margin-top:40px;
+        width:100%;
+        height:100%;
+      }
+      #loading {
+        position: absolute;
+        width: 220px;
+        height: 19px;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -110px;
+        z-index: 20001;
+      }
+      #loading .loading-indicator {
+        height: auto;
+        margin: 0;
+      }
+      .navbar .brand {
+        font-size: 25px;
+        font-family: 'Norican', serif;
+        font-weight: bold;
+        color: white;
+      }
+      .navbar .nav > li > a {
+        padding: 13px 10px 11px;
+      }
+      .navbar .btn, .navbar .btn-group {
+        margin-top: 8px;
+      }
+      .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: #f7f7f7;
+      }
+      .leaflet-control-geoloc {
+        background-image: url(img/location.png);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
+	  #map-frame {
+	    border: 1px solid #ddd;
+		border-radius: 5px;
+		height: 400px;
+		margin-top: 40px;
+	  }
+	  #instr-frame {
+	    text-align: center;
+		margin-top: 40px;
+	  }
+	  .btn-toolbar {
+	    margin-left: auto;
+		margin-right: auto;
+        text-align: center;
+	  }
+	  #button-set-data {
+	    margin-top: 20px;
+	  }
+	  .pagination {
+	    text-align: center;
+	  }
+    </style>
+  
+</head>
+<body>
+
+
+<!-- start: navigation bar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="nav-collapse">
+            <ul class="nav">
+            
+                <li><a href="#"><img src="img/icons/logo.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/save.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/social.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/map.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/tech.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/simulator.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/finance.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/schedule.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/profile.png" width="50" height="50"></a></li>
+              
+            </ul>
+          </div>
+      </div>
+    </div>
+
+<!-- end: navigation bar -->
+
+  <div class="container-fluid">
+  
+	<!-- start: map frame -->
+  
+	<div class="row-fluid">
+	  <div class="span8 offset2" id="map-frame">
+	  </div>
+	</div>
+	
+	<!-- end: map frame -->
+	
+	<!-- start: instructions frame -->
+	
+	<div class="row-fluid">
+	  <div class="span8 offset2" id="instr-frame">
+	  </div>
+	</div>
+	
+	<!-- end: instructions frame -->
+
+    <!-- start: buttons -->
+	
+	<div class="row-fluid">
+	
+	  <div class="span12 button-set" id="button-set-data">
+	    <div class="btn-toolbar">
+		  <button class="btn" id="btn-map">Use Map Data</button>
+		  <button class="btn" id="btn-gis">Upload GIS Data</button>
+		  <button class="btn" id="btn-contour">Upload Contour Map</button>
+		</div>
+	  </div>
+	  
+	  <div class="span12 button-set" id="button-set-site">
+	    <div class="btn-toolbar">
+		  <button class="btn" id="btn-site-nw">NW Site Boundary</button>
+		  <button class="btn" id="btn-site-se">SE Site Boundary</button>
+		  <button class="btn" id="btn-site-draw">Draw Boundary</button>
+		  <button class="btn" id="btn-site-clear">Clear Markings</button>
+		</div>
+	  </div>
+ 
+	  <div class="span12 button-set" id="button-set-points">
+	  	<div class="btn-toolbar">
+          
+		  <div class="btn-group">
+		    <button class="btn" id="btn-pwrhouse">Powerhouse</button>
+		    <button class="btn dropdown-toggle" data-toggle="dropdown">
+		      <span class="caret"></span>
+		    </button>
+	        <ul class="dropdown-menu">
+		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">View/Hide Points</a></li>
+		      <li><a href="#">Edit Points Data</a></li>
+            </ul>
+		  </div>
+		  
+		  <div class="btn-group">
+		    <button class="btn" id="btn-res">Residential</button>
+		    <button class="btn dropdown-toggle" data-toggle="dropdown">
+		      <span class="caret"></span>
+		    </button>
+	        <ul class="dropdown-menu">
+		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">View/Hide Points</a></li>
+		      <li><a href="#">Edit Points Data</a></li>
+            </ul>
+		  </div>
+		  
+		  <div class="btn-group">
+		    <button class="btn" id="btn-prod">Productive</button>
+		    <button class="btn dropdown-toggle" data-toggle="dropdown">
+		      <span class="caret"></span>
+		    </button>
+	        <ul class="dropdown-menu">
+		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">View/Hide Points</a></li>
+		      <li><a href="#">Edit Points Data</a></li>
+            </ul>
+		  </div>
+		  
+		  <div class="btn-group">
+		    <button class="btn" id="btn-comm">Community</button>
+		    <button class="btn dropdown-toggle" data-toggle="dropdown">
+		      <span class="caret"></span>
+		    </button>
+	        <ul class="dropdown-menu">
+		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">View/Hide Points</a></li>
+		      <li><a href="#">Edit Points Data</a></li>
+            </ul>
+		  </div>
+
+		</div>
+      </div>
+		
+    </div>
+
+    <!-- end: buttons -->
+	
+	<!-- start: page navigation -->
+	
+    <div class="row-fluid">
+	
+	  <div class="span12" id="page-nav">
+	    <div class="pagination">
+          <ul>
+            <li><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+		</div>
+      </div>
+	</div>
+
+
+  <script type="text/javascript">
+    function reset() {
+	  $('.button-set').hide();
+	}
+	function setInstructions(msg) {
+	  $('#instr-frame').html(msg);
+	}
+		
+	function showScreenData() {
+	  reset();
+	  $('#button-set-data').show();
+	  setInstructions('Click a button below to choose data method');
+	}
+	
+	function showScreenSite() {
+	  reset();
+	  $('#button-set-site').show();
+	  setInstructions('Click buttons below to mark boundaries of site');
+	}
+	
+	function showScreenPoints() {
+	  reset();
+	  $('#button-set-points').show();
+	  setInstructions('Click buttons below to mark points of interest');
+	}
+	
+	reset();
+	showScreenPoints();
+	
+	$('#btn-map').click(function(e) {
+	  alert("clicked! ");
+	  console.log(e);
+	  e.preventDefault();
+	});
+	
+	$('#btn-action').click(function(e) {
+	  console.log("hi");
+	  console.log(e);
+	});
+	
+  </script>
+
+  
+</body>
+</html>

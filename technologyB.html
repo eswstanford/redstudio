@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/angular.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/controllers.js"></script>
+  <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        overflow:hidden;
+      }
+      #map {
+        margin-top:40px;
+        width:100%;
+        height:100%;
+      }
+      #loading {
+        position: absolute;
+        width: 220px;
+        height: 19px;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -110px;
+        z-index: 20001;
+      }
+      #loading .loading-indicator {
+        height: auto;
+        margin: 0;
+      }
+      .navbar .brand {
+        font-size: 25px;
+        font-family: 'Norican', serif;
+        font-weight: bold;
+        color: white;
+      }
+      .navbar .nav > li > a {
+        padding: 13px 10px 11px;
+      }
+      .navbar .btn, .navbar .btn-group {
+        margin-top: 8px;
+      }
+      .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: #f7f7f7;
+      }
+      .leaflet-control-geoloc {
+        background-image: url(img/location.png);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
+    </style>
+  
+</head>
+<body>
+
+
+<!-- start: navigation bar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="nav-collapse">
+            <ul class="nav">
+            
+                <li><a href="template.html"><img src="img/icons/logo.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/save.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/social.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/map.png" width="50" height="50"></a></li>
+                <li class="active"><a href="technology.html"><img src="img/icons/tech.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/simulator.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/finance.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/schedule.png" width="50" height="50"></a></li>
+                <li><a href="#"><img src="img/icons/profile.png" width="50" height="50"></a></li>
+              
+            </ul>
+          </div>
+      </div>
+    </div>
+
+<!-- end: navigation bar -->
+
+
+<div style="width: 80%; position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
+<h1><img src="img/icons/tech.png" width="50px" height="50px"></img>Hydro Power Characterization</h1><br>
+<p>Enter Flow Rate (m<sup>3</sup>/s)</p><input type="text" data-provide="typeahead" id="flowrate"></input>
+
+
+ <!-- a warning should pop up if the user enters anything that isn't a number.  Also, is there a way to make the 3 in m3 show up subscript?-->
+
+
+<p>Enter Effective Head (m)</p><input type="text" data-provide="typeahead" id="head"></input>
+<!-- there should be a place here where the user can input a number and a warning should pop up if the user enters anything that isn't a number.-->
+<script>
+  function calculate(){
+    var flowValue = document.getElementById('flowrate').value;
+    var headValue = document.getElementById('head').value;
+    alert("flowValue: " + flowValue + " " + 
+      "headValue: " + headValue );
+  }
+</script>
+
+
+<br><button onclick="calculate()">What Generator Do You Recommend?</button>
+
+<br><a href="technology.html"><button>Back</button></a>
+  
+
+</div>
+
+</body>
+</html>
