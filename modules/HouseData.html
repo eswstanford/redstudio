@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head data-ng-app data-ng-csp="">
+  <meta charset="utf-8">
+  <title>RED Studio</title>
+  <meta name="description" content="Renewable Energy Design Studio" />
+  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
+  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/leaflet.css" />
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/angular.js"></script>
+  <script src="../js/leaflet.js"></script>
+  <script src="../js/controllers.js"></script>
+  <link rel="stylesheet" href="../css/redstudiostyle.css" />
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  
+</head>
+<body>
+
+
+<!-- start: navigation bar -->
+   
+  <div class = "row-fluid" align:"center">
+    <ul class="topbar">
+      <li class="logo"><a href><img src = "../img/logo.png"></img></a> </li>
+      <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
+      <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
+      <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
+      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
+  </ul>
+  </div>
+    <!-- end: navigation bar -->
+
+  <div class="container">  
+      <!-- Example row of columns -->  
+      <div class="row">  
+        <div class="span12">  
+          <h2 class="text-left">Part B:House Data</h2>  
+          <p> </p>  
+          <div id="myCarousel" class="carousel thumbnail span10 offset1"> 
+            <!-- Carousel items -->  
+          <div class="carousel-inner">  
+        <div class="active item" >
+         <table style="border-collapse:collapse;">
+            <tbody>
+                <tr>
+                    <td style="padding:5px;"><em>1.How many rooms does your house have?</em> </td>
+                    <td style="padding:5px;"><input type="text">rooms (including kitchen)</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px;">2.How big is your house?</td>
+                    <td style="padding:5px;"><input type="text">m^2</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px;">3. What type of roof material is used?</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px;">
+                      <label class="checkbox">
+                      <input type="checkbox" value=""> Roof Tiles</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:5px;">
+                      <label class="checkbox">
+                      <input type="checkbox" value=""> Tin Roof</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:5px;">
+                      <label class="checkbox">
+                      <input type="checkbox" value=""> Leaves(straw, palm, leaves)</label>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>  
+          
+  </div>  
+  <!-- Carousel nav -->  
+  <a class="carousel-control left" href="FamilyProfile.html" data-slide="prev">‹</a>  
+  <a class="carousel-control right" href="EconomicData.html" data-slide="next">›</a>  
+      </div>  
+    </div>  
+  </div> <!-- row-->
+  <div class="row">
+    <div class="span4 offset4">
+      <div class="progress progress-info">
+        <div class="bar" style="width: 40%"></div>
+      </div>
+    </div>
+  </div> <!--2nd row-->
+</div> <!-- container--> 
+  
+<!--javascript --> 
+
+<script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>  
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-carousel.js"></script>  
+  
+</body>
+</html>
