@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 <head data-ng-app data-ng-csp="">
   <meta charset="utf-8">
   <title>RED Studio</title>
@@ -10,55 +9,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/leaflet.css" />
   <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="../css/redstudio.css">
-  <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="../css/l.geosearch.css" />
-  <base target="_blank">
   <script src="../js/angular.js"></script>
   <script src="../js/leaflet.js"></script>
   <script src="../js/controllers.js"></script>
+  <link rel="stylesheet" href="../css/redstudiostyle.css" />
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  
 </head>
-
 <body>
 
-<div class="container-fluid"> <!-- start: bootstrap container -->
-  <!-- start: navigation bar -->
-  <div class="row-fluid">
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="nav-collapse">
-            <ul class="nav nav-tabs">
-                <li><a href="home.html">
-                  <img src="../img/icons/home.png" width="50" height="50"></a>
-                </li>
-                <li><a href="commit.html">
-                  <img src="../img/icons/github.png" width="50" height="50"></a>
-                </li>
-                <li><a href="community.html">
-                  <img src="../img/icons/community.png" width="50" height="50"></a>
-                </li>
-                <li>
-                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
-                </li>
-                <li class="active"><a href="technology.html">
-                  <img src="../img/icons/hydro.png" width="50" height="50"></a>
-                </li>
-                <li><a href="console.html">
-                  <img src="../img/icons/console.png" width="50" height="50"></a>
-                </li>
-                <li><a href="financial.html">
-                  <img src="../img/icons/financial.png" width="50" height="50"></a>
-                </li>
-                <li><a href="results.html">
-                  <img src="../img/icons/results.png" width="50" height="50"></a>
-                </li>
-                <li><a href="http://stanfordredi.wordpress.com">
-                  <img src="../img/icons/wordpress.png" width="50" height="50"></a>
-                </li>
-            </ul>
-        </div>
-      </div>
-    </div>
+
+<!-- start: navigation bar -->
+   
+  <div class = "row-fluid" align:"center">
+    <ul class="topbar">
+      <li class="logo"><a href><img src = "../img/logo.png"></img></a> </li>
+      <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
+      <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
+      <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
+      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
+  </ul>
+  </div>
     <!-- end: navigation bar -->
 
 
