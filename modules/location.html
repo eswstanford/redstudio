@@ -7,31 +7,19 @@
   <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
   <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/redstudiostyle.css" />
   <link rel="stylesheet" href="../css/leaflet.css" />
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <base target="_parent">
-  <script src="../js/bootstrap.js"></script>
+  <link rel="stylesheet" href="../css/l.geosearch.css" />
   <script src="../js/angular.js"></script>
-  <script src="../js/leaflet.js"></script>
   <script src="../js/controllers.js"></script>
-  <script src="../js/jquery-1.9.1.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/leaflet.js"></script>
+  <script src="../js/l.control.geosearch.js"></script>
+  <script src="../js/l.geosearch.provider.google.js"></script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
   <style type="text/css">
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        overflow:hidden;
-      }
-	  body {
-	    padding-top: 73px;
-	  }
-      #map {
-        margin-top:40px;
-        width:100%;
-        height:100%;
-      }
       #loading {
         position: absolute;
         width: 220px;
@@ -80,8 +68,8 @@
 		margin-right: auto;
         text-align: center;
 	  }
-	  #button-set-data {
-	    margin-top: 20px;
+	  #button-set-map {
+	    visibility: hidden;
 	  }
 	  .pagination {
 	    text-align: center;
@@ -91,7 +79,18 @@
 </head>
 <body>
 
-
+<!-- start: navigation bar -->
+  <div class = "row-fluid" align:"center">
+    <ul class="topbar">
+      <li class="logo"><a href><img src = "../img/logo.png"></img></a> </li>
+      <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
+      <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
+      <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
+      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
+  </ul>
+  </div>
+<!-- end: navigation bar -->
 
   <div class="container-fluid">
   
@@ -99,8 +98,39 @@
   
 	<div class="row-fluid">
 	  <div class="span8 offset2" id="map-frame">
-	  </div>
-	</div>
+
+		<script>
+
+			function getURLParameter(name) {
+				return decodeURI(
+					(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,])[1]
+				);
+			}
+
+			var regionParameter = getURLParameter('region');
+			var region = (regionParameter === 'undefined') ? '' : regionParameter;
+
+			// create map 
+			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png';
+			var basemap = new L.TileLayer(cloudmadeUrl, {maxZoom: 18});
+			
+			var map = new L.Map('map-frame', {
+			  layers: [basemap], 
+			  center: new L.LatLng(-6, 106), zoom: 6
+			});
+
+			new L.Control.GeoSearch({
+				provider: new L.GeoSearch.Provider.Google({
+				  region: region
+				})
+			}).addTo(map);
+
+			map.addControl(new L.Control.Scale());
+
+		  </script>
+
+      </div>
+    </div>
 	
 	<!-- end: map frame -->
 	
@@ -117,20 +147,26 @@
 	
 	<div class="row-fluid">
 	
-	  <div class="span12 button-set" id="button-set-data">
-	    <div class="btn-toolbar">
-		  <button class="btn" id="btn-map">Use Map Data</button>
-		  <button class="btn" id="btn-gis">Upload GIS Data</button>
-		  <button class="btn" id="btn-contour">Upload Contour Map</button>
+	  <div class="span12 button-set" id="button-set-map">
+	  	<div class="btn-toolbar">
+		  <button class="btn" id="btn-reset">Reset Map</button>
 		</div>
 	  </div>
-	  
+		  
 	  <div class="span12 button-set" id="button-set-site">
 	    <div class="btn-toolbar">
 		  <button class="btn" id="btn-site-nw">NW Site Boundary</button>
 		  <button class="btn" id="btn-site-se">SE Site Boundary</button>
 		  <button class="btn" id="btn-site-draw">Draw Boundary</button>
 		  <button class="btn" id="btn-site-clear">Clear Markings</button>
+		</div>
+	  </div>
+	  
+	  <div class="span12 button-set" id="button-set-data">
+	    <div class="btn-toolbar">
+		  <button class="btn" id="btn-map">Use Map Data</button>
+		  <button class="btn" id="btn-gis">Upload GIS Data</button>
+		  <button class="btn" id="btn-contour">Upload Contour Map</button>
 		</div>
 	  </div>
  
@@ -143,7 +179,7 @@
 		      <span class="caret"></span>
 		    </button>
 	        <ul class="dropdown-menu">
-		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">Upload Points</a></li>
 		      <li><a href="#">View/Hide Points</a></li>
 		      <li><a href="#">Edit Points Data</a></li>
             </ul>
@@ -155,7 +191,7 @@
 		      <span class="caret"></span>
 		    </button>
 	        <ul class="dropdown-menu">
-		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">Upload Points</a></li>
 		      <li><a href="#">View/Hide Points</a></li>
 		      <li><a href="#">Edit Points Data</a></li>
             </ul>
@@ -167,7 +203,7 @@
 		      <span class="caret"></span>
 		    </button>
 	        <ul class="dropdown-menu">
-		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">Upload Points</a></li>
 		      <li><a href="#">View/Hide Points</a></li>
 		      <li><a href="#">Edit Points Data</a></li>
             </ul>
@@ -179,7 +215,7 @@
 		      <span class="caret"></span>
 		    </button>
 	        <ul class="dropdown-menu">
-		      <li><a href="#">Draw Points</a></li>
+		      <li><a href="#">Upload Points</a></li>
 		      <li><a href="#">View/Hide Points</a></li>
 		      <li><a href="#">Edit Points Data</a></li>
             </ul>
@@ -191,45 +227,33 @@
     </div>
 
     <!-- end: buttons -->
-	
-	<!-- start: page navigation -->
-	
-    <div class="row-fluid">
-	
-	  <div class="span12" id="page-nav">
-	    <div class="pagination">
-          <ul>
-            <li><a href="#">Prev</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">Next</a></li>
-          </ul>
-		</div>
-      </div>
-	</div>
-
 
   <script type="text/javascript">
+  
     function reset() {
 	  $('.button-set').hide();
 	}
+	
 	function setInstructions(msg) {
 	  $('#instr-frame').html(msg);
 	}
-		
-	function showScreenData() {
-	  reset();
-	  $('#button-set-data').show();
-	  setInstructions('Click a button below to choose data method');
-	}
 	
+	function showScreenMap() {
+	  reset();
+	  $('#button-set-map').show();
+	  setInstructions('Enter your project location in the search field above');
+	}
+		
 	function showScreenSite() {
 	  reset();
 	  $('#button-set-site').show();
 	  setInstructions('Click buttons below to mark boundaries of site');
+	}
+	
+	function showScreenData() {
+	  reset();
+	  $('#button-set-data').show();
+	  setInstructions('Click a button below to choose elevation data method');
 	}
 	
 	function showScreenPoints() {
@@ -239,7 +263,43 @@
 	}
 	
 	reset();
-	showScreenPoints();
+	showScreenMap();
+	
+	</script>
+	
+	<!-- start: page navigation -->
+	
+    <div class="row-fluid">
+	
+	  <div class="span12" id="page-nav">
+	    <div class="pagination">
+          <ul>
+            <li><a href="#"><<</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenMap();">1</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenSite();">2</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenData();">3</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenPoints();">4</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenPoints();">5</a></li>
+            <li><a href="javascript:void(0);" onclick="showScreenPoints();">>></a></li>
+          </ul>
+		</div>
+      </div>
+	</div>
+	
+	<script>
+	
+	function getSearchLocation() {
+	  var location = $('#search').val();
+	  return location;
+	}
+	
+	$('#search-form').submit(
+	  function submitSearchLocation(e) {
+	    e.preventDefault();
+	    var location = getSearchLocation();
+	    alert(location);
+		setInstructions('Pan map to center on project location');
+	});
 	
 	$('#btn-map').click(function(e) {
 	  alert("clicked! ");
@@ -251,6 +311,8 @@
 	  console.log("hi");
 	  console.log(e);
 	});
+	
+	$('dropdown.toggle').dropdown();
 	
   </script>
 
