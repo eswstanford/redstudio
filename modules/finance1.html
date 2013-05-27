@@ -12,9 +12,15 @@
   <script src="../js/angular.js"></script>
   <script src="../js/leaflet.js"></script>
   <script src="../js/controllers.js"></script>
+  <script src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.1.js"></script>  
+    <script type="text/javascript" src="../js/twitter-bootstrap/bootstrap-dropdown.js"></script>  
+
   <link rel="stylesheet" href="../css/redstudiostyle.css" />
-  <script type="text/javascript" src="../js/jquery.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  
+
+
+</script>
 </head>
 <body>
 
@@ -27,33 +33,33 @@
       <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
       <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
       <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
-      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="social"><a href="profile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
       <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
   </ul>
   </div>
     <!-- end: navigation bar -->
 
-<div style="width: 80%;position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
+<div style="width: 80%;position: relative; top: 20px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
 <h1><img src="img/icons/finance.png" width="50px" height="50px"></img> Financial Overview</h1>
-<div class = "row">
-  <div class="btn-group">
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href=#>
-      Engineering Estimate <span class="caret"></span>
-    </a>
-    <u1 class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block;">
-      <li><a tabindex="-1" href="#">Project Estimate Summary</a></li>
-      <li class="divider"></li>
-      <li><a tabindex="-1" href="#">I. Preparatory Work</a></li>
-      <li><a tabindex="-1" href="#">II. Civil Work</a></li>
-      <li><a tabindex="-1" href="#">III. Mechanical and Electrical Work</a></li>
-      <li><a tabindex="-1" href="#">IV. Transmission Work</a></li>
-      <li><a tabindex="-1" href="#">V. Contingency</a></li>
-      <li><a tabindex="-1" href="#">VI. Design and System Planning</a></li>
-    </u1>
-  </div>
-    <div class="btn">Cash Flow Analysis</div>
-    <div class="btn">Budget Tracker</div>
+
+<div class = "dropdown">
+  <ul class="nav nav-pills">
+  <li class="dropdown all-camera-dropdown">
+    <a class="dropdown-toggle" id="estimate_summary" role="button" data-toggle="dropdown" href="#">Project Estimate Summary <b class="caret"></b></a>
+    <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">I. Preparatory Work</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">II. Civil Work</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">III. Mechanical and Electrical Work</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">IV. Transmission Work</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">V. Contingency</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">VI. Design and System Planning</a></li>
+    </ul>
+  </li>
+    <li id="cashflow"><a href="#">Cash Flow Analysis</a></li>
+    <li id="budgettracker"><a href="#">Budget Tracker</a></li>
+  </ul> <!-- /tabs -->
 </div>
+
 <div class="row">
   <h4>Project Estimate Summary</h4>
   <table class="table-bordered">
@@ -118,6 +124,7 @@
   </table>
 </div>
 </div>
+
 
 </body>
 </html>

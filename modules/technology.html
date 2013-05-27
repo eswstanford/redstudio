@@ -27,12 +27,11 @@
       <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
       <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
       <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
-      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="social"><a href="profile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
       <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
   </ul>
   </div>
-
-<!-- end: navigation bar -->
+    <!-- end: navigation bar -->
 
 <div style="width: 80%; position: relative; top: 100px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
   <!-- This should be the area where users can choose which resource they have.  Right now, only hydropower is an option. Somehow, clicking on the button should more to the next page which I included in the next div section.-->
@@ -46,6 +45,19 @@
 </div>
 
 <!-- This is the section where the user will input their site characteristics.  There should be a way where they can click a button that will pull from the location module to figure out the head from the elevation data.  Or they can enter a number of things that will allow the tool to calculate the head-->
+
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+jQuery(function() {
+  jQuery('.topbar li').each(function() {
+    var href = jQuery(this).find('a').attr('href');
+    if (href === window.location.pathname) {
+      jQuery(this).addClass('active');
+    }
+  });
+});  
+//]]>
+</script>
 
 </body>
 </html>
