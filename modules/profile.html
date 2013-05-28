@@ -20,14 +20,9 @@
 <script>
 $(document).ready(function() {
   var hash = document.location.hash;
-  if (hash == ""){
-    $('#index').slideDown('slow');
-    $('#li_index').addClass('active');
-  }
-  else {
-    $(hash).slideDown('slow');
-    $('#li_'+hash).addClass('active');
-  }
+  if (hash == "") hash = '#index';
+  $(hash).slideDown('slow');
+  $('#li_'+hash.substring(1)).addClass('active');
 });
 </script>
 </head>
@@ -187,7 +182,7 @@ $(document).ready(function() {
 </div>
 
 
-<div id="familyProfile" style="display:none">
+<div id="familyProfile" style="display:none" class="longform">
   <table style="border-collapse:collapse;">
       <h2 class="text-left">Part A: Family Profile</h2>  
       <tbody>
@@ -196,56 +191,56 @@ $(document).ready(function() {
             <td colspan="2"> <em> 1.The number of members of the family (who live at home only) </em>
           </tr>
           <tr>
-              <td style="padding:5px;">   Male adults 20 years and older </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   Male adults 20 years and older </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   Female adults 20 years and older </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   Female adults 20 years and older </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   Children under 20 years old </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   Children under 20 years old </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
-          <tr>
-              <td style="padding:5px;">   <strong>Total</strong> </td>
-              <td style="padding:5px;"><!--something that will add the previous inputs-->people</td>
+          <tr class="total">
+              <td style="padding-left:35px; text-align: right">   <strong>Total</strong> </td>
+              <td style="padding-left:35px; text-align: right"><!--something that will add the previous inputs-->people</td>
           </tr>
           <!--second question-->
           <tr>
             <td colspan="2"> <em> 2.The number of children at school </em>
           </tr>
           <tr>
-              <td style="padding:5px;">   Students attending university </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   Students attending university </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   SLTU(wall?) </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   SLTU(wall?) </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   SLTP(Junior) </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   SLTP(Junior) </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   The Elementary School </td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:35px;">   The Elementary School </td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">   <strong>Total</strong> </td>
-              <td style="padding:5px;"><!--something that will add the previous inputs-->people</td>
+              <td style="padding-left:35px; text-align: right">   <strong>Total</strong> </td>
+              <td style="padding-left:35px; text-align: right"><!--something that will add the previous inputs-->people</td>
           </tr>
           <tr>
-              <td style="padding:5px;"><em> 3.How many people in your family work in the village?</em></td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:5px;"><em> 3.How many people in your family work in the village?</em></td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">4.How many of your family who live outside the village for work?</td>
-              <td style="padding:5px;"><input type="text">people</td>
+              <td style="padding-left:5px;">4.How many of your family who live outside the village for work?</td>
+              <td style="padding-left:35px;"><input type="text">people</td>
           </tr>
           <tr>
-              <td style="padding:5px;">5. Is your family headed by a male or a female?</td>
-              <td style="padding:5px;"> 
+              <td style="padding-left:5px;">5. Is your family headed by a male or a female?</td>
+              <td style="padding-left:35px;"> 
                 <label class="checkbox inline"> 
                 <input type="checkbox" id="Male" value="option1"> Male </label>
                 <label class="checkbox inline">
@@ -270,12 +265,19 @@ $(document).ready(function() {
  <table style="border-collapse:collapse;">
     <tbody>
         <tr>
-            <td style="padding:5px;"><em>1.How many rooms does your house have?</em> </td>
-            <td style="padding:5px;"><input type="text">rooms (including kitchen)</td>
+            <td style="padding:5px;">1.How many rooms does your house have?</td>
+            <td style="text-align:right;"><select class="selectpicker span1">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4+</option>
+            </select>
+              rooms (including kitchen)</td>
         </tr>
         <tr>
             <td style="padding:5px;">2.How big is your house?</td>
-            <td style="padding:5px;"><input type="text">m^2</td>
+            <td style="padding:5px;"><input type="text" >m<sup>2</sup></td>
         </tr>
         <tr>
             <td style="padding:5px;">3. What type of roof material is used?</td>

@@ -124,11 +124,16 @@ html, body {
 .icon-chart-line:before { content: '📈'; } /* '\1f4c8' */
 .icon-wrench:before { content: '🔧'; } /* '\1f527' */{}
 
-.topbar { width: 80%; margin:0 auto; list-style: none; margin-top: 20px; overflow: hidden; clear: both; /*background-color:#eee;*/}
-.topbar li { display: inline-block; float: left; margin: 0 5px 5px 0; position: relative; padding-right:15px; /*border-right:1px solid #eeeeee*/ }
-.topbar li a { text-decoration: none; display: block; width: 80px; height: 80px; /*background: #282828;*/ color: #000; font-size: 13px; opacity:0.6; }
+.topbar { width: 80%; margin:0 auto; list-style: none; margin-top: 20px; overflow: hidden; clear: both;}
+.topbar li { display: inline-block; float: left; margin: 0 5px 5px 0; position: relative; padding-right:15px;}
+.topbar li a { text-decoration: none; display: block; width: 80px; height: 80px; color: #000; font-size: 13px; opacity:0.6; }
 .topbar li .logo { width: 260px; text-align: center; padding-top: 20px; float: left; position:relative; background-color:#000;}
 .topbar li a:hover { text-decoration: none; opacity:1.0; color:#CC0000;}
 .topbar li .topbar-label { display: block; padding: 0 12px; text-align: center}
 .topbar li .topbar-icon { display: block; width: 36px; height: 36px; padding: 15px 0 5px 0; margin: 0 auto; font-size:14px;}
 .topbar li .topbar-active{opacity:1.0; color:#610005;}
+
+.nav-list a, .pager li > a{color: #CC0000;}
+.nav-list > .active > a, .nav-list > .active > a:hover {background-color: #BA7272;}
+
+.finalRow {text-align: right; padding: 10px;}
