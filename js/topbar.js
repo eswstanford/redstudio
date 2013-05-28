@@ -7,5 +7,5 @@
             return document.location.href.indexOf($(this).attr('href')) >= 0;
         });
 
-        matches.addClass('active');
+        matches.addClass('topbar-active');
     });
