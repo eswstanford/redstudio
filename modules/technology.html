@@ -36,7 +36,7 @@
 <div style="width: 80%;position: relative; top: 20px; left: 100px; margin: 10px; padding: 10px; z-index: 0;">
   <!-- This should be the area where users can choose which resource they have.  Right now, only hydropower is an option. Somehow, clicking on the button should more to the next page which I included in the next div section.-->
 <h1><!--<img src="img/icons/tech.png" width="50px" height="50px"></img>-->Resource and Technology</h1>
-<table cellspacing="5" padding="4">
+<!--<table cellspacing="5" padding="4">
   <tr><td colspan="4" align="center"><h3>Choose your resource:</h3></td></tr>
 <tr></tr>
 <tr align="center" span="100%">
@@ -45,23 +45,24 @@
 <td><button><img src="../img/icons/wind.png" width="50px" height="50px"></img>Wind Plant</button></td>
 <td><button><img src="../img/icons/biogas.png" width="50px" height="50px"></img>Biogas Plant</button></td>
 </tr>
-</table>
+</table>--><br />
+<h3>Choose your resource:</h3>
+<ul class="nav nav-pills" align="center">
+    <li id="li_hydro"><a href="hydropower.html">
+      <figure class="tint"><img src="../img/icons/hydro.png" width="50px" height="50px"></img></figure>          Microhydro Plant</a></li>
+    <li id="li_solar"><a href="#">
+      <figure class="tint"><img src="../img/icons/solar.png" width="50px" height="50px"></img></figure>          Solar Plant</a></li>
+    <li id="li_wind"><a href="#">
+      <figure class="tint"><img src="../img/icons/wind.png" width="50px" height="50px"></img></figure>          Wind Plant</a></li>
+    <li id="li_biogas"><a href="#">
+      <figure><img src="../img/icons/biogas.png" width="50px" height="50px"></img></figure>          Biogas Plant</a></li>
+</ul> <!-- /tabs -->
+
+
+
+
 </div>
-
 <!-- This is the section where the user will input their site characteristics.  There should be a way where they can click a button that will pull from the location module to figure out the head from the elevation data.  Or they can enter a number of things that will allow the tool to calculate the head-->
-
-<script type="text/javascript" charset="utf-8">
-//<![CDATA[
-jQuery(function() {
-  jQuery('.topbar li').each(function() {
-    var href = jQuery(this).find('a').attr('href');
-    if (href === window.location.pathname) {
-      jQuery(this).addClass('active');
-    }
-  });
-});  
-//]]>
-</script>
 
 </body>
 </html>

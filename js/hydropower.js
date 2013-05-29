@@ -68,8 +68,8 @@ function printGeneratorInfo() {
     var turbines = [[]];
     turbines.push(data[0]);
     for (var i=1; i < data.length; i++){
-      if ((flowValue && data[i][1] == flowValue) || 
-        (headValue && data[i][0] == headValue) ||         
+      if ((flowValue && !headValue && data[i][1] == flowValue) || 
+        (headValue && !flowValue && data[i][0] == headValue) ||         
         (flowValue && headValue && data[i][0] == headValue && data[i][1] == flowValue)){
         turbines.push([]);
         turbines.push(data[i]);
