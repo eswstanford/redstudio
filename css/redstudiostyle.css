@@ -135,5 +135,15 @@ html, body {
 
 .nav-list a, .pager li > a{color: #CC0000;}
 .nav-list > .active > a, .nav-list > .active > a:hover {background-color: #BA7272;}
+.nav-pills > li > a, a {color: #CC0000;}
+.nav-pills > li > a:hover, a:hover {color: #610005;}
+
+.nav .dropdown-toggle .caret {
+margin-top: 6px;
+border-top-color: #CC0000;
+border-bottom-color: #CC0000;
+}
 
 .finalRow {text-align: right; padding: 10px;}
+
+
