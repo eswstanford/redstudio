@@ -10,5 +10,5 @@
 .wizard .badge {margin:0 5px 0 18px; position:relative; top:-1px;}
 .wizard a:first-child .badge {margin-left:0;}
 
-.wizard .current {background:#007ACC; color:#fff;}
-.wizard .current:after {border-left-color:#007ACC;}
+.wizard .current {background:#BA7272; color:#fff;}
+.wizard .current:after {border-left-color:#BA7272;}

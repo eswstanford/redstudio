@@ -146,4 +146,8 @@ border-bottom-color: #CC0000;
 
 .finalRow {text-align: right; padding: 10px;}
 
+.wizard .current {
+background: #BA7272;
+color: #fff;
+}
 

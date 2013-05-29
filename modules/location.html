@@ -7,55 +7,70 @@
   <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
   <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/jasny-bootstrap.css" />
   <link rel="stylesheet" href="../css/redstudiostyle.css" />
   <link rel="stylesheet" href="../css/leaflet.css" />
   <link rel="stylesheet" href="../css/l.geosearch.css" />
+  <link rel="stylesheet" href="../css/leaflet.draw.css" />
+  <link rel="stylesheet" href="../css/wizard.css" />
+
+
   <script src="../js/angular.js"></script>
   <script src="../js/controllers.js"></script>
   <script src="../js/bootstrap.js"></script>
+  <script src="../js/jasny-bootstrap.js"></script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery.csv-0.71.min.js"></script>
+
   <script src="../js/leaflet.js"></script>
   <script src="../js/l.control.geosearch.js"></script>
   <script src="../js/l.geosearch.provider.google.js"></script>
-  <script type="text/javascript" src="../js/jquery.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+  <script src="../js/leaflet.draw.js"></script>
+  
+  <script src="../js/edit/handler/Edit.Poly.js"></script>
+  <script src="../js/edit/handler/Edit.SimpleShape.js"></script>
+  <script src="../js/edit/handler/Edit.Circle.js"></script>
+  <script src="../js/edit/handler/Edit.Rectangle.js"></script>
 
-      <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.1.js"></script>  
-    <script type="text/javascript" src="../js/twitter-bootstrap/bootstrap-dropdown.js"></script>  
+  <script src="../js/draw/handler/Draw.Feature.js"></script>
+  <script src="../js/draw/handler/Draw.Polyline.js"></script>
+  <script src="../js/draw/handler/Draw.Polygon.js"></script>
+  <script src="../js/draw/handler/Draw.SimpleShape.js"></script>
+  <script src="../js/draw/handler/Draw.Rectangle.js"></script>
+  <script src="../js/draw/handler/Draw.Circle.js"></script>
+  <script src="../js/draw/handler/Draw.Marker.js"></script>
+
+  <script src="../js/ext/LatLngUtil.js"></script>
+  <script src="../js/ext/LineUtil.Intersect.js"></script>
+  <script src="../js/ext/Polygon.Intersect.js"></script>
+  <script src="../js/ext/Polyline.Intersect.js"></script>
+
+  <script src="../js/Control.Draw.js"></script>
+  <script src="../js/Tooltip.js"></script>
+  <script src="../js/Toolbar.js"></script>
+
+  <script src="../js/draw/DrawToolbar.js"></script>
+  <script src="../js/edit/EditToolbar.js"></script>
+  <script src="../js/edit/handler/EditToolbar.Edit.js"></script>
+  <script src="../js/edit/handler/EditToolbar.Delete.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
   <style type="text/css">
-      #loading {
-        position: absolute;
-        width: 220px;
-        height: 19px;
-        top: 50%;
-        left: 50%;
-        margin: -10px 0 0 -110px;
-        z-index: 20001;
-      }
-      #loading .loading-indicator {
-        height: auto;
-        margin: 0;
-      }
-      .navbar .brand {
-        font-size: 25px;
-        font-family: 'Norican', serif;
-        font-weight: bold;
-        color: white;
-      }
-      .navbar .nav > li > a {
-        padding: 13px 10px 11px;
-      }
-      .navbar .btn, .navbar .btn-group {
-        margin-top: 8px;
-      }
+	  body {
+	    overflow: scroll;
+	  }
       .leaflet-popup-content-wrapper, .leaflet-popup-tip {
         background: #f7f7f7;
       }
       .leaflet-control-geoloc {
-        background-image: url(img/location.png);
         -webkit-border-radius: 5px 5px 5px 5px;
         border-radius: 5px 5px 5px 5px;
       }
+	  .leaflet-draw-toolbar a {
+	    background-image: url('../img/spritesheet.png');
+	  }
 	  #map-frame {
 	    border: 1px solid #ddd;
 		border-radius: 5px;
@@ -64,8 +79,16 @@
 	  }
 	  #instr-frame {
 	    text-align: center;
-		margin-top: 40px;
+		margin-top: 30px;
 	  }
+      .row-fluid .span12 { 
+	    margin-left: 0; 
+      }
+	  .form-set {
+		text-align: center;
+		height: 40px;
+	  }
+
 	  .btn-toolbar {
 	    margin-left: auto;
 		margin-right: auto;
@@ -77,24 +100,37 @@
 	  .pagination {
 	    text-align: center;
 	  }
+	  .wizard {
+	    margin-left: auto;
+		margin-right: auto;
+		display: table;
+	  }
+	  .content {
+	    height: 130px;
+      position: relative;
+	  }
+
+    #button-set-points
+    {
+      text-align: center;
+    }
     </style>
   
 </head>
 <body>
 
 <!-- start: navigation bar -->
-   
   <div class = "row-fluid" align:"center">
     <ul class="topbar">
       <li class="logo"><a href><img src = "../img/logo.png"></img></a> </li>
       <li class="location" class="active"><a href="location.html"><span class="topbar-icon icon-map"></span><span class="topbar-label">Location</span></a></li>
       <li class="simulator"><a href><span class="topbar-icon icon-gauge"></span><span class="topbar-label">Simulator</span></a></li>
       <li class="finance"><a href="finance1.html"><span class="topbar-icon icon-chart-line"></span><span class="topbar-label">Finance</span></a></li>
-      <li class="social"><a href="profile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
+      <li class="social"><a href="FamilyProfile.html"><span class="topbar-icon icon-users"></span><span class="topbar-label">Profile</span></a></li>
       <li class="technology"><a href="technology.html"><span class="topbar-icon icon-flash"></span><span class="topbar-label">Technology</span></a></li>
   </ul>
   </div>
-    <!-- end: navigation bar -->
+<!-- end: navigation bar -->
 
   <div class="container-fluid">
   
@@ -114,7 +150,7 @@
 			var regionParameter = getURLParameter('region');
 			var region = (regionParameter === 'undefined') ? '' : regionParameter;
 
-			// create map 
+			// Create map 
 			var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png';
 			var basemap = new L.TileLayer(cloudmadeUrl, {maxZoom: 18});
 			
@@ -123,13 +159,37 @@
 			  center: new L.LatLng(-6, 106), zoom: 6
 			});
 
-			new L.Control.GeoSearch({
-				provider: new L.GeoSearch.Provider.Google({
-				  region: region
-				})
-			}).addTo(map);
+			// Initialize the search control
+			var geoSearch = new L.Control.GeoSearch({
+				provider: new L.GeoSearch.Provider.Google(),
+				zoomLevel: 16
+			})
+			geoSearch.addTo(map);
+			var geoSearchShow = true;
 
-			map.addControl(new L.Control.Scale());
+			// Initialize the search control
+			var scaleControl = new L.Control.Scale();
+			map.addControl(scaleControl);
+			
+			// Initialize the FeatureGroup to store editable layers
+			var drawnItems = new L.FeatureGroup();
+			map.addLayer(drawnItems);
+
+			// Initialize the draw control and pass it the FeatureGroup of editable layers
+			var drawControl = new L.Control.Draw({
+				draw: {
+				  polygon: false,
+				  circle: false,
+				  marker: false
+				},
+				edit: {
+				  featureGroup: drawnItems
+				}
+			});
+			
+			// Track draw control add and remove with boolean
+			map.addControl(drawControl);
+			var drawControlShow = true;
 
 		  </script>
 
@@ -138,189 +198,323 @@
 	
 	<!-- end: map frame -->
 	
-	<!-- start: instructions frame -->
+	<!-- start: content frame -->
 	
-	<div class="row-fluid">
+	<div class="row-fluid content">
 	  <div class="span8 offset2" id="instr-frame">
 	  </div>
-	</div>
-	
-	<!-- end: instructions frame -->
-
-    <!-- start: buttons -->
-	
-	<div class="row-fluid">
-	
-	  <div class="span12 button-set" id="button-set-map">
-	  	<div class="btn-toolbar">
-		  <button class="btn" id="btn-reset">Reset Map</button>
-		</div>
-	  </div>
-		  
-	  <div class="span12 button-set" id="button-set-site">
-	    <div class="btn-toolbar">
-		  <button class="btn" id="btn-site-nw">NW Site Boundary</button>
-		  <button class="btn" id="btn-site-se">SE Site Boundary</button>
-		  <button class="btn" id="btn-site-draw">Draw Boundary</button>
-		  <button class="btn" id="btn-site-clear">Clear Markings</button>
-		</div>
+	  
+	  <div class="span12 panel" id="form-set-lat-lng">
+	    <form class="form-inline form-set" >
+		  <input type="text" class="input-medium" id="lat-field" placeholder="Latitude in degrees">
+		  <input type="text" class="input-medium" id="lng-field" placeholder="Longitude in degrees">
+		  <button type="submit" class="btn" id="lat-lng-submit">Submit</button>
+        </form>
 	  </div>
 	  
-	  <div class="span12 button-set" id="button-set-data">
+	  <div class="span12 panel" id="button-set-site">
 	    <div class="btn-toolbar">
-		  <button class="btn" id="btn-map">Use Map Data</button>
-		  <button class="btn" id="btn-gis">Upload GIS Data</button>
-		  <button class="btn" id="btn-contour">Upload Contour Map</button>
-		</div>
+		  <button class="btn" id="btn-set-site">Set Boundary</button>
+		  </div>
+	  </div>
+	  
+	  <div class="span12 panel" id="form-set-upload">
+	    <form class="form-inline form-set">
+  		  <span class="btn btn-file">Upload GPS Data<input type="file" id="gps-file-upload"/></span>
+		  </form>
 	  </div>
  
-	  <div class="span12 button-set" id="button-set-points">
-	  	<div class="btn-toolbar">
-          
-		  <div class="btn-group">
-		    <button class="btn" id="btn-pwrhouse">Powerhouse</button>
-		    <button class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </button>
-	        <ul class="dropdown-menu">
-		      <li><a href="#">Upload Points</a></li>
-		      <li><a href="#">View/Hide Points</a></li>
-		      <li><a href="#">Edit Points Data</a></li>
-            </ul>
-		  </div>
-		  
-		  <div class="btn-group">
-		    <button class="btn" id="btn-res">Residential</button>
-		    <button class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </button>
-	        <ul class="dropdown-menu">
-		      <li><a href="#">Upload Points</a></li>
-		      <li><a href="#">View/Hide Points</a></li>
-		      <li><a href="#">Edit Points Data</a></li>
-            </ul>
-		  </div>
-		  
-		  <div class="btn-group">
-		    <button class="btn" id="btn-prod">Productive</button>
-		    <button class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </button>
-	        <ul class="dropdown-menu">
-		      <li><a href="#">Upload Points</a></li>
-		      <li><a href="#">View/Hide Points</a></li>
-		      <li><a href="#">Edit Points Data</a></li>
-            </ul>
-		  </div>
-		  
-		  <div class="btn-group">
-		    <button class="btn" id="btn-comm">Community</button>
-		    <button class="btn dropdown-toggle" data-toggle="dropdown">
-		      <span class="caret"></span>
-		    </button>
-	        <ul class="dropdown-menu">
-		      <li><a href="#">Upload Points</a></li>
-		      <li><a href="#">View/Hide Points</a></li>
-		      <li><a href="#">Edit Points Data</a></li>
-            </ul>
-		  </div>
-
-		</div>
-      </div>
-		
+	  <div class="span12 panel" id="button-set-points">
     </div>
-
-    <!-- end: buttons -->
+  </div>
+  <!-- end: content frame -->
+		
+	<!-- start: page navigation -->
+	
+  <div class="row-fluid">
+	  <div class="span12" id="page-nav">
+	  	<div class="wizard">
+		  <a href="javascript:void(0);" onclick="showScreenMap();" id="step1" class="step"><span class="badge">1</span> Site Location</a>
+		  <a href="javascript:void(0);" onclick="showScreenSite();" id="step2" class="step"><span class="badge">2</span> Site Boundaries</a>
+	    <a href="javascript:void(0);" onclick="showScreenData();" id="step3" class="step"><span class="badge">3</span> Data Upload </a>
+		  <a href="javascript:void(0);" onclick="showScreenPoints();" id="step4" class="step"><span class="badge">4</span> Points of Interest </a> 
+		  <a href="javascript:void(0);" onclick="showScreenPoints();" id="step5" class="step"><span class="badge">5</span> Community Survey </a> 
+		  </div>
+    </div>
+	</div>
+	
+  <!-- end: page navigation -->
 
   <script type="text/javascript">
   
+    /* =======================
+     * Handle Navigation
+     * =======================
+     */
+
     function reset() {
-	  $('.button-set').hide();
-	}
+  	  $('.button-set').hide();
+  	  $('.panel').hide();
+  	  if (geoSearchShow == true) {
+  	    geoSearch.removeFrom(map);
+  		  geoSearchShow = false;
+  	  }
+  	  if (drawControlShow == true) {
+  	    map.removeControl(drawControl);
+  		  drawControlShow = false;
+  	  }
+  	  
+  	  $('.step').removeClass('current');
+	  }
 	
-	function setInstructions(msg) {
-	  $('#instr-frame').html(msg);
-	}
-	
-	function showScreenMap() {
-	  reset();
-	  $('#button-set-map').show();
-	  setInstructions('Enter your project location in the search field above');
-	}
-		
-	function showScreenSite() {
-	  reset();
-	  $('#button-set-site').show();
-	  setInstructions('Click buttons below to mark boundaries of site');
-	}
-	
-	function showScreenData() {
-	  reset();
-	  $('#button-set-data').show();
-	  setInstructions('Click a button below to choose elevation data method');
-	}
-	
-	function showScreenPoints() {
-	  reset();
-	  $('#button-set-points').show();
-	  setInstructions('Click buttons below to mark points of interest');
-	}
-	
-	reset();
-	showScreenMap();
+  	function setInstructions(msg) {
+  	  $('#instr-frame').html(msg);
+  	}
+  	
+  	function showScreenMap() {
+  	  reset();
+  	  $('#step1').addClass('current');
+  	  $('#button-set-map').show();
+  	  $('#form-set-lat-lng').show();
+  	  if (geoSearchShow == false) {
+  	    geoSearch.addTo(map);
+  		  geoSearchShow = true;
+  	  }
+  	  setInstructions('Enter the project location in the search field above. OR Enter the latitude and longitude below.');
+  	}
+  		
+  	function showScreenSite() {
+  	  reset();
+  	  $('#step2').addClass('current');
+  	  $('#button-set-site').show();
+  	  if (drawControlShow == false) {
+  	    map.addControl(drawControl);
+  	    drawControlShow = true;
+  	  }
+  	  setInstructions('Use rectangle tool to mark boundaries of project site.');
+  	}
+  	
+  	function showScreenData() {
+  	  reset();
+  	  $('#step3').addClass('current');
+  	  $('#button-set-data').show();
+  	  $('#form-set-upload').show();
+  	  setInstructions('Click button below to upload *.csv files with GPS data for POIs or contour data for elevations.');
+  	}
+  	
+  	function showScreenPoints() {
+  	  reset();
+  	  $('#step4').addClass('current');
+  	  $('#button-set-points').show();
+  	  setInstructions('Click buttons below to mark points of interest');
+  	}
+  	
+  	reset();
+  	showScreenMap();
 	
 	</script>
-	
-	<!-- start: page navigation -->
-	
-    <div class="row-fluid">
-	
-	  <div class="span12" id="page-nav">
-	    <div class="pagination">
-          <ul>
-            <li><a href="#"><<</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenMap();">1</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenSite();">2</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenData();">3</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenPoints();">4</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenPoints();">5</a></li>
-            <li><a href="javascript:void(0);" onclick="showScreenPoints();">>></a></li>
-          </ul>
-		</div>
-      </div>
-	</div>
+
 	
 	<script>
 	
-	function getSearchLocation() {
-	  var location = $('#search').val();
-	  return location;
-	}
-	
-	$('#search-form').submit(
-	  function submitSearchLocation(e) {
-	    e.preventDefault();
-	    var location = getSearchLocation();
-	    alert(location);
-		setInstructions('Pan map to center on project location');
-	});
-	
-	$('#btn-map').click(function(e) {
-	  alert("clicked! ");
-	  console.log(e);
-	  e.preventDefault();
-	});
-	
-	$('#btn-action').click(function(e) {
-	  console.log("hi");
-	  console.log(e);
-	});
-	
-	$('dropdown.toggle').dropdown();
-	
+    /* =======================
+     * Step 1: Site Location
+     * =======================
+     */
+  	map.on('geosearch_showlocation', function(result) {
+  	  setInstructions('Click on center of project location.');
+  	});
+  	
+  	var marker;
+  		
+  	map.on('click', function(e) {
+  	  if (marker) {
+  	    map.removeLayer(marker);
+  	  }
+  	  map.removeLayer(geoSearch._positionMarker);
+  	  var center = e.latlng;
+  	  marker = new L.marker(center);
+  	  marker.addTo(map);
+  	  map.panTo(center);
+  	  setInstructions('If the center of the project location is correct, please click next step.');
+  	});
+  	
+  	function getInputLatLng() {
+  	  var latInput = $('#lat-field').val();
+  	  var lngInput = $('#lng-field').val();
+  	  var lat = parseFloat(latInput);
+  	  var lng = parseFloat(lngInput);
+  	  if (isNaN(lat) || lat > 180 || lat < -180) {
+  	    alert("'" + latInput + "'" + " is not a valid latitude.");
+  		$('#lat-field').val("");
+  	  }
+  	  if (isNaN(lng) || lng > 180 || lng < -180) {
+  	    alert("'" + lngInput + "'" + " is not a valid longitude.");
+  		$('#lng-field').val("");
+  	  }
+  	  else {
+  	    var latlng = new L.LatLng(lat, lng);
+  	    return latlng;
+  	  }
+  	};
+  	
+  	function centerMap(center) {
+  	  L.marker(center).addTo(map);
+  	  map.panTo(center);
+  	  map.setZoom(16);
+  	  setInstructions('If the center of the project location is correct, please click next step.');
+  	}
+  	
+  	$('#lat-lng-submit').click(function(e) {
+  	  e.preventDefault();
+  	  var center = getInputLatLng();
+  	  centerMap(center);
+  	});
+  	
+    /* =======================
+     * Step 2: Site Boundaries
+     * =======================
+     */
+
+  	var bounds;
+  	
+  	map.on('draw:created', function (e) {
+  	  setInstructions('If the project boundary marked by the rectangle is correct, please click "Set Boundary" button.');
+  	  var type = e.layerType,
+  		layer = e.layer;
+  	  if (type === 'rectangle') {
+  		bounds = layer.getBounds();
+  	  }
+  	  drawnItems.addLayer(layer);
+  	});
+  	
+  	$('#btn-set-site').click(function (e) {
+  	  map.fitBounds(bounds);
+  	  setInstructions('If the project boundary is correct, please click next step.');
+  	});
+  	
+
+    /* =======================
+     * Setup for Step 3 & Step 4
+     * =======================
+     */
+
+    var iconMapping = {
+      "System"      : "powersubstation.png",
+      "Residential" : "townhouse.png",
+      "Productive"  : "wifi.png",
+      "Community"   : "communitycentre.png" 
+    }
+
+    var locationTypes = [
+      "System",
+      "Residential",
+      "Productive",
+      "Community"
+    ]
+    
+    function drawCheckboxes()
+    {
+      var html = '';
+      for(var i = 0; i < locationTypes.length; i++)
+      {
+        var type = locationTypes[i];
+        html += '<label class="checkbox inline">' + 
+                '<input class="location-checkbox" type="checkbox" id="' + type + '-checkbox" value="option1" checked> <img src="../img/' + iconMapping[type] + '" /> ' + type +  
+                '</label>';
+      }
+      $('#button-set-points').html(html);
+    }
+
+    function isChecked(type)
+    {
+      return $("#" + type + "-checkbox").is(':checked');
+    }
+
+    drawCheckboxes();
+
+    /* =======================
+     * Step 3: Data Upload
+     * =======================
+     */
+
+
+    var gpsData;
+    var gpsMarkers = [];
+
+    function getIcon(filename)
+    {
+      var icon = L.icon({
+        iconUrl: "../img/" + filename,
+        iconSize: [32, 37],
+        iconAnchor: [16, 37],
+        popupAnchor: [-0, -37]
+      });
+      return icon;
+    }
+
+  	function processRow(row)
+    {
+      var id = row[0];
+      var type = row[1];
+      var lat = row[2];
+      var lng = row[3];
+      var elevation = row[4];
+      
+      if(isChecked(type)) {
+        var marker = L.marker(new L.LatLng(lat, lng),
+          {
+            icon: getIcon(iconMapping[type])
+          }).addTo(map);
+
+        var popupContent = "Elevation: " + elevation;
+        marker.bindPopup(popupContent);
+        gpsMarkers.push(marker);
+      }
+    }  
+
+    function processGPSData(gpsData)
+    {
+      //Remove existing markers
+      for(var i = 0; i < gpsMarkers.length; i++)
+      {
+        map.removeLayer(gpsMarkers[i]);
+      }
+      gpsMarkers = [];
+
+      for(var i = 0; i < gpsData.length; i++)
+      {
+        processRow(gpsData[i]);
+      }
+    }
+
+  	$('#gps-file-upload').change(function(e)
+    {
+      var file = e.currentTarget.files[0];
+      if(file)
+      {
+
+        var r = new FileReader();
+        r.onload = function(e) {
+          gpsData = $.csv.toArrays(e.target.result);
+          processGPSData(gpsData);
+        }
+        r.readAsText(file);
+      }
+    })
+
+    
+    /* ==========================
+     * Step 4: Points of Interest
+     * ==========================
+     */
+
+    $(".location-checkbox").click(function() {
+      processGPSData(gpsData);
+    });
+
   </script>
 
-<script type="text/javascript" src="topbar.js" />
   
 </body>
 </html>
