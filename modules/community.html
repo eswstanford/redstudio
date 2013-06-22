@@ -1,85 +1,296 @@
 <!doctype html>
 <html lang="en">
-
-<head data-ng-app data-ng-csp="">
-  <meta charset="utf-8">
-  <title>RED Studio</title>
-  <meta name="description" content="Renewable Energy Design Studio" />
-  <meta name="keywords" content="energy, sustainable, development, hydro, leaflet, esw, bootstrap, open source" />
-  <meta name="author" content="ESW-Stanford - esw.stanford.edu" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/leaflet.css" />
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="../css/redstudio.css">
-  <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="../css/l.geosearch.css" />
-  <base target="_blank">
-  <script src="../js/angular.js"></script>
-  <script src="../js/leaflet.js"></script>
-  <script src="../js/controllers.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title>Renewable Energy Design Studio</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/community.css">
+	<!-- scripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </head>
-
 <body>
-
-<div class="container-fluid"> <!-- start: bootstrap container -->
-  <!-- start: navigation bar -->
-  <div class="row-fluid">
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="nav-collapse">
-            <ul class="nav nav-tabs">
-                <li><a href="home.html">
-                  <img src="../img/icons/home.png" width="50" height="50"></a>
-                </li>
-                <li><a href="commit.html">
-                  <img src="../img/icons/github.png" width="50" height="50"></a>
-                </li>
-                <li class="active"><a href="community.html">
-                  <img src="../img/icons/community.png" width="50" height="50"></a>
-                </li>
-                <li>
-                  <a href="geospatial.html"><img src="../img/icons/geospatial.png" width="50" height="50"></a>
-                </li>
-                <li><a href="technology.html">
-                  <img src="../img/icons/hydro.png" width="50" height="50"></a>
-                </li>
-                <li><a href="console.html">
-                  <img src="../img/icons/console.png" width="50" height="50"></a>
-                </li>
-                <li><a href="financial.html">
-                  <img src="../img/icons/financial.png" width="50" height="50"></a>
-                </li>
-                <li><a href="results.html">
-                  <img src="../img/icons/results.png" width="50" height="50"></a>
-                </li>
-                <li><a href="http://stanfordredi.wordpress.com">
-                  <img src="../img/icons/wordpress.png" width="50" height="50"></a>
-                </li>
-            </ul>
-        </div>
-      </div>
-    </div>
-    <!-- end: navigation bar -->
-
-<!-- start: projects -->
-<div class="row-fluid">
-  <div class="span8 offset2">
-    nothing here yet
-  </div>
+<div class="container">
+<!-- start: navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="brand" href="#">
+						<img src="../img/logo.png" width="30"> 
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<a href="location.html"><img src="../img/location.png" width="30"> Location</a>
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<a href="community.html"><img src="../img/community.png" width="30"> Community</a>
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<a href="system.html"><img src="../img/system.png" width="30"> System</a>
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<a href="docs.html"><img src="../img/docs.png" width="30"> Docs</a>
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<a href="help.html"><img src="../img/help.png" width="30"> Help</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
-<!-- end: projects -->
+<!-- end: navbar -->
 
-<!-- start: backend stuff-->
+<!-- start: forms -->
+<div id="forms">
+	<div class="tabbable tabs-right">
+    	<ul class="nav nav-tabs">
+     		<li class="active"><a href="#index" data-toggle="tab">Index</a></li>
+            <li><a href="#familyProfile" data-toggle="tab">Family Profile</a></li>
+            <li><a href="#houseData" data-toggle="tab">House Data</a></li>
+            <li><a href="#economicData" data-toggle="tab">Economic Data</a></li>
+        </ul>
+        <div class="tab-content">
+			<div class="tab-pane active" id="index">
+				<h3 class="text-left">Index</h3> 
+				<table>
+  					<thead>
+    					<tr>
+        					<th colspan="2">Territorial Public Data</th>
+      					</tr>
+  					</thead>
+  					<tbody>
+      					<tr>
+          					<td style="padding:5px;">Province</td>
+      	    				<td style="padding:5px;"><input type="text" placeholder="e.g. West Java"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Regency</td> 
+          					<td style="padding:5px;"><input type="text" placeholder="e.g. Sukabumi"></td>     
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Sub-District</td>
+          					<td style="padding:5px;"><input type="text" placeholder="e.g. Cikakak"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Village</td>
+          					<td style="padding:5px;"><input type="text" placeholder="e.g. Sima Rasa"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Dunsun/Kampung</td>
+          					<td style="padding:5px;">
+            				<label class="checkbox inline"> 
+            					<input type="checkbox" id="Cihangasa" value="option1"> Cihangasa </label>
+            					<label class="checkbox inline"><input type="checkbox" id="Cisarua" value="option2"> Cisarua </label>
+            					<label class="checkbox inline"><input type="checkbox" id="SirnaRasa" value="option3"> Sirna Rasa </label>
+            				</td>
+      					</tr>
+      					<tr><td></td></tr>
+      					<tr>
+          					<td style="padding:5px;">Name of interviewer</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Start of interview</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">End of interview</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr><td></td></tr>
+       					<tr>
+          					<td style="padding:5px;">Number of households</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr>
+        	  				<td style="padding:5px;">Number of respondents</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Age of respondents</td>
+          					<td style="padding:5px;"><input type="text"></td>
+      					</tr>
+      					<tr>
+          					<td style="padding:5px;">Status in family</td>
+          					<td style="padding:5px;">
+            					<label class="checkbox inline"> <input type="checkbox" id="checkHead" value="option1"> Head </label>
+            					<label class="checkbox inline"><input type="checkbox" id="checkWife" value="option2"> Wife </label>
+            					<label class="checkbox inline"><input type="checkbox" id="checkChild" value="option3"> Child </label>
+          					</td>
+      					</tr>
+  					</tbody>
+				</table>
+			</div>
 
-<!-- 1. add chrome filesystem api -->
-<!-- 2. add chrome filesystem api -->
+			<div class="tab-pane" id="familyProfile">
+  				<table style="border-collapse:collapse;">
+			     	<h3 class="text-left">Family Profile</h3>  
+      				<tbody>
+          				<tr>
+            				<td colspan="2">1. The number of members of the family (who live at home only) 
+      	    			</tr>
+       		   			<tr>
+     				        <td style="padding-left:35px;">   Male adults 20 years and older </td>
+    				        <td style="padding-left:35px;"><input type="text">people</td>
+ 			        	</tr>
+          				<tr>
+            	  			<td style="padding-left:35px;">   Female adults 20 years and older </td>
+             	 			<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+            	  			<td style="padding-left:35px;">   Children under 20 years old </td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr class="total">
+              				<td style="padding-left:35px; text-align: right">   <strong>Total</strong> </td>
+              				<td style="padding-left:35px; text-align: right"><!--something that will add the previous inputs-->people</td>
+          				</tr>
+         	 			<tr>
+            				<td colspan="2">2. The number of children at school 
+          				</tr>
+          				<tr>
+              				<td style="padding-left:35px;">   Students attending university </td>
+            	    		<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:35px;">   SLTU(wall?) </td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:35px;">   SLTP(Junior) </td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:35px;">   The Elementary School </td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:35px; text-align: right">   <strong>Total</strong> </td>
+              				<td style="padding-left:35px; text-align: right"><!--something that will add the previous inputs-->people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:5px;">3. How many people in your family work in the village?</td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:5px;">4. How many of your family who live outside the village for work?</td>
+              				<td style="padding-left:35px;"><input type="text">people</td>
+          				</tr>
+          				<tr>
+              				<td style="padding-left:5px;">5. Is your family headed by a male or a female?</td>
+              				<td style="padding-left:35px;"> 
+                				<label class="checkbox inline"> <input type="checkbox" id="Male" value="option1"> Male </label>
+               	 				<label class="checkbox inline"><input type="checkbox" id="Female" value="option2"> Female </label>
+                				<label class="checkbox inline">
+              				</td>
+          				</tr>
+      				</tbody>
+    			</table>
+			</div>
 
+			<div class="tab-pane" id="houseData">
+				<table style="border-collapse:collapse;">
+  				<h3 class="text-left">House Data</h3>  
+    				<tbody>
+        				<tr>
+				            <td style="padding:5px;">1. How many rooms does your house have?</td>
+      					    <td style="text-align:right;">
+      					    	<select class="selectpicker span1">
+            	  					<option>0</option>
+            	  					<option>1</option>
+            	  					<option>2</option>
+              						<option>3</option>
+            	  					<option>4+</option>
+           		 				</select>
+              					rooms (including kitchen)</td>
+        				</tr>
+        				<tr>
+            				<td style="padding:5px;">2. How big is your house?</td>
+            				<td style="padding:5px;"><input type="text" >m<sup>2</sup></td>
+        				</tr>
+        				<tr>
+           		 			<td style="padding:5px;">3. What type of roof material is used?</td>
+        				</tr>
+        				<tr>
+            				<td style="padding:5px;">
+             					<label class="checkbox"><input type="checkbox" value=""> Roof Tiles</label>
+            				</td>
+        				</tr>
+        				<tr>
+            				<td style="padding:5px;">
+              					<label class="checkbox"><input type="checkbox" value=""> Tin Roof</label>
+            				</td>
+        				</tr>
+        				<tr>
+            				<td style="padding:5px;">
+              					<label class="checkbox"><input type="checkbox" value=""> Leaves(straw, palm, leaves)</label>
+            				</td>
+        				</tr>
+    				</tbody>
+  				</table>
+			</div>  
 
-<!-- end: backend stuff-->
-
-
-</div> <!-- end: bootstrap container -->
-<script type="text/javascript" src="topbar.js" />
-
+			<div class="tab-pane" id="economicData">  
+          		<h3 class="text-left">Economic Data</h3>  
+          		<p><strong>Household Income </strong></p>  
+         		<table class="table" style="border-collapse:collapse;">
+            		<thead>
+                		<tr>
+                	    	<td colspan="7">1. What is your income from farming?</td>
+       		 	        </tr>
+       	         		<tr style="border-bottom:3px solid black;">
+                    		<th style="width: 20%; padding:5px;">Type of plant </th>
+                    		<th style="width: 13.33%; padding:5px;border-left:3px solid black;">Average number prouksi per plant(kg)</th>
+                    		<th style="13.33%; padding:5px;border-left:1px solid black;">Harvest per year</th>
+                    		<th style="13.33%; padding:5px;border-left:1px solid black;">Average price of production (Rp)</th>
+                    		<th style="13.33%; padding:5px;border-left:1px solid black;">Estimated annual revenues (Rp)</th>
+                    		<th style="13.33%; padding:5px;border-left:1px solid black;">Average annual cost (Rp)</th>
+                    		<th style="13.33%; padding:5px;border-left:1px solid black;">Cash crops (Rp)</th>
+                		</tr>
+            		</thead>
+            		<tbody>
+                		<tr>
+                  			<td>Paddy</td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                		</tr>
+                 		<tr>
+                  			<td><input class="input-medium" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                		</tr>
+                 		<tr>
+                  			<td><input class="input-medium" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                  			<td><input class="input-mini" type="text"></td>
+                		</tr>
+            		</tbody>
+          		</table>
+    		</div>
+      	</div>
+    </div>
+</div>
+<!-- end: forms -->
+</div>
 </body>
 </html>
