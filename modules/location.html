@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app lang="en">
+<html ng-app lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
 	<title>Renewable Energy Design Studio</title>
@@ -8,52 +8,41 @@
 	<link rel="stylesheet" type="text/css" href="../css/mapbox.css">
 	<link rel="stylesheet" type="text/css" href="../css/location.css">
 	<link rel="stylesheet" type="text/css" href="../css/leaflet.draw.css">
-	<!-- scripts -->
-	<script src="../js/angular.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/mapbox.js"></script>
-	<script src="../js/leaflet.draw.js"></script>
 </head>
 <body>
-<!-- start: navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<div class="nav-collapse collapse">
-				<ul class="nav">
-					<li class="brand" href="#">
-						<img src="../img/logo.png" width="30"> 
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a href="location.html"><img src="../img/location.png" width="30"> Location</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a href="community.html"><img src="../img/community.png" width="30"> Community</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a href="system.html"><img src="../img/system.png" width="30"> System</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a href="docs.html"><img src="../img/docs.png" width="30"> Docs</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a href="help.html"><img src="../img/help.png" width="30"> Help</a>
-					</li>
-				</ul>
+	<!-- start: navbar -->
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<div class="nav-collapse collapse" ng-controller="NavCtrl">
+							<ul class="nav">
+								<li class="brand" href="#">
+									<img src="../img/Logo.png" width="30"> 
+								</li>
+								<li ng-repeat="module in modules">
+									<a href="{{module}}.html"><img src="../img/{{module}}.png" width="30">{{module}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- end: navbar -->
+	<!-- end: navbar -->
 
-<!-- start: map -->
-<div id="map"></div>
-<script src="../js/location.js"></script>
-<!-- end: map -->
+	<!-- start: map -->
+	<div id="map"></div>
+	<!-- end: map -->
+
+    <!-- scripts -->
+    <script src="../js/angular.js"></script>
+    <script src="../js/controllers.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/mapbox.js"></script>
+	<script src="../js/leaflet.draw.js"></script>
+	<script src="../js/location.js"></script>
 </body>
 </html>

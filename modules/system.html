@@ -1,49 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
 	<title>Renewable Energy Design Studio</title>
 	<!-- styles -->
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/system.css">
-	<!-- scripts -->
-	<script src="../js/jquery.js"></script>
-  	<script src="../js/jquery.csv.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-  	<script src="../js/hydropower.js"></script>
 </head>
 <body>
-<div class="container">
 	<!-- start: navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="brand" href="#">
-							<img src="../img/logo.png" width="30"> 
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="location.html"><img src="../img/location.png" width="30"> Location</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="community.html"><img src="../img/community.png" width="30"> Community</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="system.html"><img src="../img/system.png" width="30"> System</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="docs.html"><img src="../img/docs.png" width="30"> Docs</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="help.html"><img src="../img/help.png" width="30"> Help</a>
-						</li>
-					</ul>
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<div class="nav-collapse collapse" ng-controller="NavCtrl">
+							<ul class="nav">
+								<li class="brand" href="#">
+									<img src="../img/Logo.png" width="30"> 
+								</li>
+								<li ng-repeat="module in modules">
+									<a href="{{module}}.html"><img src="../img/{{module}}.png" width="30">{{module}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -51,49 +32,38 @@
 	<!-- end: navbar -->
 
 	<!-- start: system -->
-	<div id="system">
-		<div class="tabbable tabs-right">
-		    <ul class="nav nav-tabs">
-		     	<li class="active"><a href="#technology" data-toggle="tab">Technology</a></li>
-		        <li><a href="#resource" data-toggle="tab">Resource</a></li>
-		        <li><a href="#design" data-toggle="tab">Design</a></li>
-		    </ul>
-		    <div class="tab-content">
-		    	<div class="tab-pane active" id="technology">
-		        	<br>
-		        	<div class="row">
-			        	<div class="span2">
-			        		<a href="#" class="btn btn-large"><img src="../img/hydro.png" width="50px"></a>
+	<div class="container">
+		<div id="system">
+			<div class="tabbable tabs-right">
+			    <ul class="nav nav-tabs">
+			     	<li class="active"><a href="#technology" data-toggle="tab">Technology</a></li>
+			        <li><a href="#resource" data-toggle="tab">Resource</a></li>
+			        <li><a href="#design" data-toggle="tab">Design</a></li>
+			    </ul>
+			    <div class="tab-content">
+			    	<div class="tab-pane active" id="technology">
+			        	<br>
+			        	<div class="row">
+				        	<div class="span2" ng-controller="SysCtrl">
+				        		<a href="#" class="btn btn-large" ng-repeat="generator in generators"><img src="../img/{{generator}}.png" width="50px"></a>
+				        	</div>
 			        	</div>
-			        	<div class="span2">
-			        		<a href="#" class="btn btn-large disabled"><img src="../img/solar.png" width="50px"></a>
-			        	</div>
-		        	</div>
-		        	<br><br><br>
-		        	<div class="row">
-			        	<div class="span2">
-			        		<a href="#" class="btn btn-large disabled"><img src="../img/wind.png" width="50px"></a>
-			        	</div>
-			        	<div class="span2">
-			        		<a href="#" class="btn btn-large disabled"><img src="../img/biogas.png" width="50px"></a>
-			        	</div>
-			        </div>
-		    	</div>
-		      	<div class="tab-pane" id="resource">
-			        <br>
-			        <h3>Hydro Resource Characterization</h3>
-			        <br>
-			        <p>Enter Effective Head (m)</p><input type="text" data-provide="typeahead" id="head">
-			        <p>Enter Flow Rate (m<sup>3</sup>/s)</p>
-			        <input type="text" data-provide="typeahead" id="flowrate">
-			    </div>
-			    <div class="tab-pane" id="design">
+			    	</div>
+			      	<div class="tab-pane" id="resource">
+				        <br>
+				        <h3>Hydro Resource Characterization</h3>
+				        <br>
+				        <p>Enter Effective Head (m)</p><input type="text" data-provide="typeahead" id="head">
+				        <p>Enter Flow Rate (m<sup>3</sup>/s)</p>
+				        <input type="text" data-provide="typeahead" id="flowrate">
+				    </div>
+				    <div class="tab-pane" id="design">
 
-			        <br />
-					<input id="findGenerator" type="button" value="Turbine Recommendation" />
-					<br /><br />
-					<table id="result" border="1px" margin="5px"></table>
-					<br /><br />
+				        <br />
+						<input id="findGenerator" type="button" value="Turbine Recommendation" />
+						<br /><br />
+						<table id="result" border="1px" margin="5px"></table>
+						<br /><br />
 <textarea id="turbines" style="display:none;">
 Effective Head (m),Flow Rate (m<sup>3</sup>/s),Turbine Type,Estimate of Expected Power (kW)
 3,0.1,Kaplan,5
@@ -241,11 +211,18 @@ Effective Head (m),Flow Rate (m<sup>3</sup>/s),Turbine Type,Estimate of Expected
 1000,0.5,Pelton,4000
 1000,1,Pelton,7500
 </textarea>
-		      	</div>
-		    </div>
-	  	</div>
+			      	</div>
+			    </div>
+		  	</div>
+		</div>
 	</div>
 	<!-- end: system -->
-</div>
+	<!-- scripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/angular.js"></script>
+	<script src="../js/controllers.js"></script>
+  	<script src="../js/jquery.csv.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+  	<script src="../js/hydropower.js"></script>
 </body>
 </html>

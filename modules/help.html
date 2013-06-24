@@ -1,89 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
 	<title>Renewable Energy Design Studio</title>
 	<!-- styles -->
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/help.css">
-	<!-- scripts -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
 	<!-- start: navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="brand" href="#">
-							<img src="../img/logo.png" width="30"> 
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="location.html"><img src="../img/location.png" width="30"> Location</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="community.html"><img src="../img/community.png" width="30"> Community</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="system.html"><img src="../img/system.png" width="30"> System</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="docs.html"><img src="../img/docs.png" width="30"> Docs</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="help.html"><img src="../img/help.png" width="30"> Help</a>
-						</li>
-					</ul>
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<div class="nav-collapse collapse" ng-controller="NavCtrl">
+							<ul class="nav">
+								<li class="brand" href="#">
+									<img src="../img/Logo.png" width="30"> 
+								</li>
+								<li ng-repeat="module in modules">
+									<a href="{{module}}.html"><img src="../img/{{module}}.png" width="30">{{module}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- end: navbar -->
 
+
 	<!-- start: docs -->
 	<div id="docs">
-		<div class="tabbable tabs-right">
-	    	<ul class="nav nav-tabs">
-	     		<li class="active"><a href="#location" data-toggle="tab">Location</a></li>
-	        	<li><a href="#community" data-toggle="tab">Community</a></li>
-	        	<li><a href="#system" data-toggle="tab">System</a></li>
-	        	<li><a href="#docs" data-toggle="tab">Docs</a></li>
-	        	<li><a href="#appendix" data-toggle="tab">Appendix</a></li>
-	    	</ul>
-	    	<div class="tab-content">
-	    		<div class="tab-pane active" id="location">
-	    			<br>
-	    			<p>
-	    				The location module aids users in visualizing the project site on an interactive map.  The module guides users through the process of identifying the project location, indicating the project site boundaries, uploading GPS data from site surveys, and uploading responses from community surveys.  The uploaded data is then presented on a map, allowing users to view centralized site-related project information in an intuitive visual.</p>
-	    			<br>
-					<p>
-						The module additionally allows users to edit site attributes on the map for a user-friendly and easily navigable interface for editing.  By editing on the map, human error in editing the data in spreadsheet form may be reduced.  The module includes toggling for users to control visibility of different features on the map.
-					<p>
-      			</div>
-	    		<div class="tab-pane" id="community">
-	    		</div>
-	    		<div class="tab-pane" id="system">
-	    			<br>
-	    			<p>
-	    				The system module walks users through the process of selecting the specific technology that is appropriate for their electricity requirements and meets their site constraints.  In the alpha version of Red Studio, only the microhydro option is available.  Other resource types that will be available in future iterations are solar, wind, and biogas.
-	    			</p>
-      			</div>
-      			<div class="tab-pane" id="docs">
-      			</div>
-      			<div class="tab-pane" id="appendix">
-      			</div>
+		<div class="container" ng-controller="NavCtrl">
+			<div class="tabbable tabs-right">
+		    	<ul class="nav nav-tabs" >
+		     		<li class="active"><a href="#location" data-toggle="tab">About</a></li>
+		        	<li ng-repeat="module in modules"><a href="#{{module}}" data-toggle="tab">{{module}}</a></li>
+		    	</ul>
+		    	<div class="tab-content">
+		    		<div class="tab-pane active" id="About">
+		    			<!-- add overview info here -->
+		    		<div class="tab-pane" id="{{module}}">
+		    			<!-- add module info here -->
+		    		</div>
+		   		</div>
 	   		</div>
-   		</div>
+		</div>
 	</div>
 	<!-- end: docs -->
-</div>
+
+    <!-- scripts -->
+    <script src="../js/angular.js"></script>
+    <script src="../js/controllers.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>
