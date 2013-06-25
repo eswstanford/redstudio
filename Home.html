@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>Renewable Energy Design Studio</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+<body>
+
+    <!-- start: navbar -->
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand"><img src="img/Logo.png" width="40"></a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                                <h4><i class="icon-refresh"></i></h4>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <h4><i class="icon-cogs"></i><b class="caret"></b></h4>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#">Languages</a>
+                                </li>
+                                <li>
+                                    <a href="#">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sign Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h4><input type="text" class="search-query" placeholder="search"></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: navbar -->
+
+    <!-- start: homescreen -->
+    <div id="home">    
+        <div class="container">
+            <div class="row">
+                <div class="span2">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button class="btn">
+                            <i class="icon-globe"></i>
+                        </button>
+                        <button class="btn active">
+                            <i class="icon-th-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="span8 pagination-centered">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button class="btn active" style="font-weight:bold;">
+                            Cloud
+                        </button>
+                        <button class="btn" style="font-weight:bold;">
+                            Downloaded
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row" ng-controller="HomeCtrl">
+                <div class="span12">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr ng-repeat="project in projects">
+                                <td>
+                                    {{project}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: homescreen -->
+    
+    <!-- scripts -->
+    <script src="js/angular.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/controllers.js"></script>
+
+</body>
+</html>

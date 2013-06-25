@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>Renewable Energy Design Studio</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/system.css">
+</head>
+<body>
+	<!-- start: navbar -->
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<div class="nav-collapse collapse" ng-controller="NavCtrl">
+							<ul class="nav">
+								<li class="brand" href="#">
+									<img src="../img/Logo.png" width="30"> 
+								</li>
+								<li ng-repeat="module in modules">
+									<a href="{{module}}.html"><img src="../img/{{module}}.png" width="30">{{module}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end: navbar -->
+
+	<!-- scripts -->
+	<script src="../js/angular.js"></script>
+	<script src="../js/controllers.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
