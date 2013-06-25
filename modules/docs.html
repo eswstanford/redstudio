@@ -51,51 +51,81 @@
 		    				</thead>
 		    				<tbody>
 		    					<tr>
-		    						<td style="padding:5px;">System Capacity (kW)</td>
+		    						<td style="padding:5px;">System Capacity</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="Ex. 50" ng-model="sys.capacity">
+		    							<div class="input-prepend input-append">
+		    								<input type="number" placeholder="Nameplate" ng-model="sys.capacity">
+		    								<span class="add-on">kW</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Preparatory Work (Rp)</td>
+		    						<td style="padding:5px;">Preparatory Work</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 1" ng-model="sys.prep_work">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 1" ng-model="sys.prep_work">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Civil Work (Rp)</td>
+		    						<td style="padding:5px;">Civil Work</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 2" ng-model="sys.civ_work">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 2" ng-model="sys.civ_work">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Mechanical and Electrical Work (Rp)</td>
+		    						<td style="padding:5px;">Mechanical/Electrical Work</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 3" ng-model="sys.mech_work">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 3" ng-model="sys.mech_work">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Transmission Work (Rp)</td>
+		    						<td style="padding:5px;">Transmission Work</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 4" ng-model="sys.transmission_work">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 4" ng-model="sys.transmission_work">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Contingency (Rp)</td>
+		    						<td style="padding:5px;">Contingency</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 5" ng-model="sys.contingency">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 5" ng-model="sys.contingency">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Design and System Planning (Rp)</td>
+		    						<td style="padding:5px;">Design and Planning</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 6" ng-model="sys.design">
+		    							<div class="input-prepend input-append">
+		    								<span class="add-on">Rp</span>
+		    								<input type="number" placeholder="From Page 6" ng-model="sys.design">
+		    								<span class="add-on">.00</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Value Added Tax (%)</td>
+		    						<td style="padding:5px;">Value Added Tax</td>
 		    						<td style="padding:5px;">
-		    							<input type="number" placeholder="From Page 7" ng-model="sys.vat">
+		    							<div class="input-append">
+		    								<input type="number" placeholder="From Page 7" ng-model="sys.vat">
+		    								<span class="add-on">%</span>
+		    							</div>
 		    						</td>
 		    					</tr>
 		    					<tr>
