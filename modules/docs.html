@@ -41,58 +41,82 @@
 		        	<li><a href="#technical" data-toggle="tab">Technical</a></li>
 		    	</ul>
 		    	<div class="tab-content">
-		    		<div class="tab-pane active" id="financial">
+		    		<div class="tab-pane active" id="financial" ng-controller="FinancialCtrl">
 		    			<h3>Project Estimate Summary</h3>
 		    			<br>
 		    			<table>
 		    				<thead>
-		    					<th>Phase Description</th>
-		    					<th>Phase Cost</th>
+		    					<th>Item Description</th>
+		    					<th>Quantity/Value</th>
 		    				</thead>
 		    				<tbody>
 		    					<tr>
-		    						<td style="padding:5px;">Preparatory Work</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 1"></td>
+		    						<td style="padding:5px;">System Capacity (kW)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="Ex. 50" ng-model="sys.capacity">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Civil Work</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 2"></td>
+		    						<td style="padding:5px;">Preparatory Work (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 1" ng-model="sys.prep_work">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Mechanical and Electrical Work</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 3"></td>
+		    						<td style="padding:5px;">Civil Work (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 2" ng-model="sys.civ_work">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Transmission Work</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 4"></td>
+		    						<td style="padding:5px;">Mechanical and Electrical Work (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 3" ng-model="sys.mech_work">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Contingency</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 5"></td>
+		    						<td style="padding:5px;">Transmission Work (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 4" ng-model="sys.transmission_work">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Design and System Planning</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="From Page 6"></td>
+		    						<td style="padding:5px;">Contingency (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 5" ng-model="sys.contingency">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Subtotal</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="Calculated"></td>
+		    						<td style="padding:5px;">Design and System Planning (Rp)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 6" ng-model="sys.design">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Value Added Tax</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="Calculated"></td>
+		    						<td style="padding:5px;">Value Added Tax (%)</td>
+		    						<td style="padding:5px;">
+		    							<input type="number" placeholder="From Page 7" ng-model="sys.vat">
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Grand Total</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="Calculated"></td>
+		    						<td style="padding:5px; font-weight:bold;">Subtotal (Rp)</td>
+		    						<td style="padding:5px;">
+		    							{{
+		    							sys.sub_total=(sys.prep_work+sys.civ_work+sys.mech_work+sys.transmission_work+sys.contingency+sys.design)
+		    							}}
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Rounded Total</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="Calculated"></td>
+		    						<td style="padding:5px; font-weight:bold;">Grand Total (Rp)</td>
+		    						<td style="padding:5px;">
+		    							{{sys.grand_total=(1+sys.vat)*sys.sub_total}}
+		    						</td>
 		    					</tr>
 		    					<tr>
-		    						<td style="padding:5px;">Installed Cost per kW</td>
-		    						<td style="padding:5px;"><input type="text" placeholder="Calculated"></td>
+		    						<td style="padding:5px; font-weight:bold;">Installed Cost (Rp/kW)</td>
+		    						<td style="padding:5px;">
+		    							{{sys.install_cost = sys.grand_total/sys.capacity}}
+		    						</td>
 		    					</tr>
 		    				</tbody>
 		    			</table>

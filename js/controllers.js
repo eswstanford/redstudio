@@ -2,7 +2,7 @@ function NavCtrl($scope) {
 	$scope.modules = ['Location','Community','System','Docs','Help'];
 }
 
-function HmCtrl($scope) {
+function HomeCtrl($scope) {
 	$scope.hmscrn = ['Load','New','Information','Settings'];
 }
 
@@ -21,6 +21,21 @@ function FormCtrl($scope) {
 	$scope.reset();
 }
 
-function HomeCtrl($scope) {
-	$scope.projects = ['Project 1','Project 2','Project 3','Project 3','Project 4'];
+function DBCtrl($scope) {
+	$scope.projects = ['Curugagung','Cibitung','Cikalong','Prabugantungan','Cupunagara'];
+}
+
+function HelpCtrl($scope) {
+	$scope.modules = ['Location','Community','System','Docs'];
+}
+
+function FinancialCtrl($scope) { 
+	$scope.master= {};
+	$scope.update = function(sys) { 
+		$scope.master= angular.copy(sys);
+	};
+	$scope.reset = function() {
+		$scope.sys = angular.copy($scope.master);
+	};
+	$scope.reset();
 }

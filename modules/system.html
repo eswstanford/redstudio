@@ -43,9 +43,11 @@
 			    <div class="tab-content">
 			    	<div class="tab-pane active" id="technology">
 			        	<br>
-			        	<div class="row">
-				        	<div class="span2" ng-controller="SysCtrl">
-				        		<a href="#" class="btn btn-large" ng-repeat="generator in generators"><img src="../img/{{generator}}.png" width="50px"></a>
+			        	<div class="row pagination-centered">
+				        	<div class="btn-group" ng-controller="SysCtrl">
+				        		<button class="btn" ng-repeat="generator in generators">
+				        			<a href="#"><img src="../img/{{generator}}.png" width="50px"></a>
+				        		</button>
 				        	</div>
 			        	</div>
 			    	</div>
